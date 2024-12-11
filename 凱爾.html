@@ -1,58 +1,104 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第一樂章 無盡的夜晚</title>
-    <style>
-        body {
-            background-size: cover;
-            color: #fff;
-            text-align: center;
-        }
-        .chapter-title {
-            font-size: 2em;
-            margin-top: 20px;
-        }
-        .image-block {
-            margin: 20px 0;
-        }
-        .text-block {
-            margin: 20px;
-            border: 2px solid #fff;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-        .button {
-            padding: 10px 20px;
-            margin: 5px;
-            font-size: 1em;
-            border: none;
-            cursor: pointer;
-        }
-        .next-button {
-            background-color: green;
-            color: white;
-        }
-        .prev-button {
-            background-color: gray;
-            color: white;
-        }
-        .disabled {
-            background-color: gray;
-            cursor: not-allowed;
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>第一樂章 無盡的夜晚</title>
+        <style>
+            body {font-family: "標楷體", sans-serif; /* 更改字體為標楷體 */}
+            body {
+                background-size: cover;
+                color: #fff;
+                text-align: center;
+            }
+            .chapter-title {
+                font-size: 2em;
+                margin-top: 20px;
+            }
+            .image-block {
+                margin: 20px 0;
+            }
+            .text-block {
+                margin: 20px;
+                border: 2px solid #fff;
+                padding: 15px;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+            .button {
+                padding: 10px 20px;
+                margin: 5px;
+                font-size: 1em;
+                border: none;
+                cursor: pointer;
+            }
+            .next-button {
+                font-family: "標楷體", DFKai-SB, "KaiTi", serif; /* 設定為標楷體，含備選字體 */
+                border-radius: 10px; /* 圓角邊框，10px 可根據需求調整 */
+                padding: 10px 20px; /* 調整按鈕的內邊距 */
+                font-size: 16px; /* 設定按鈕文字大小 */
+                border: 2px solid #ccc; /* 邊框顏色及粗細 */
+                cursor: pointer; /* 設定游標為手型 */
+                background-color: #5fdb77; /* 按鈕背景色 */
+                color: #333; /* 文字顏色 */
+                transition: all 0.3s ease; /* 增加滑順過渡效果 */
+            }
+            .prev-button {
+                font-family: "標楷體", DFKai-SB, "KaiTi", serif; /* 設定為標楷體，含備選字體 */
+                border-radius: 10px; /* 圓角邊框，10px 可根據需求調整 */
+                padding: 10px 20px; /* 調整按鈕的內邊距 */
+                font-size: 16px; /* 設定按鈕文字大小 */
+                border: 2px solid #ccc; /* 邊框顏色及粗細 */
+                cursor: pointer; /* 設定游標為手型 */
+                background-color: #5fdb77; /* 按鈕背景色 */
+                color: #333; /* 文字顏色 */
+                transition: all 0.3s ease; /* 增加滑順過渡效果 */
+            }
+            /*
+            .jump-button {
+                font-family: "標楷體", sans-serif;
+                background-color: #1e1e60;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 5px 10px;
+                cursor: pointer;
+                &:hover {
+                    background-color: #3e3e8e; 
+                }
+            }
+            */
+            .disabled {
+                background-color: gray;
+                cursor: not-allowed;
+            }
+            .fixed-container {
+                position: absolute;
+                bottom: 15px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+            #chapter-title {
+                color: #292e2c;
+            }
+        </style>
+    </head>
 <body>
     <h1>第一樂章　無盡的夜晚</h1>
-    <!-- 跳轉到指定頁面的輸入框和按鈕 -->
+
+    <!-- 
+    跳轉到指定頁面的輸入框和按鈕
     <div style="margin: 20px;">
         <label for="page-input">輸入頁碼：</label>
         <input type="number" id="page-input" style="width: 50px;">
-        <button onclick="goToPage()">跳轉</button>
+        <button class="jump-button" onclick="goToPage()">跳轉</button>
     </div>
+     -->
 
+     <audio id="background-music" loop>
+        <source src="音樂/插入曲01.mp3" type="audio/mpeg">
+        您的瀏覽器不支援音樂撥放。
+    </audio>
     
     <div id="text-blocks" class="text-block">
         <!-- 每一段文字作為單獨的元素 -->
@@ -60,7 +106,6 @@
             <p align="center"><font size="5">凱爾</font></p>
                 就算我不在了，<br>
                 也不會有人哭泣的……<br>
-                <p align="center"><font size="5" color="#FFD700"><strong>確定選擇凱爾？選擇後將無法變更</strong></font></p>
         </div>
         <div class="page" id="page2" style="display:none;">
             <p align="left"><font size="4">孩子們</font></p>
@@ -137,11 +182,6 @@
             <img src="插圖/97.png" width="90%"/>
         </div>
         </div>
-        <div class="page" id="page9.4" style="display:none;">
-        <div class="column">
-            <img src="插圖/97.png" width="90%"/>
-        </div>
-        </div>
         <div class="page" id="page9.5" style="display:none;">
         <div class="column">
             <img src="插圖/98.png" width="90%"/>
@@ -167,11 +207,6 @@
             <img src="插圖/102.png" width="90%"/>
         </div>
         </div>
-        <div class="page" id="page9.91" style="display:none;">
-        <div class="column">
-            <img src="插圖/103.png" width="90%"/>
-        </div>
-        </div>
         <div class="page" id="page9.92" style="display:none;">
         <div class="column">
             <img src="插圖/103.png" width="90%"/>
@@ -189,7 +224,7 @@
         </div>
         <div class="page" id="page10" style="display:none;">
             <p align="left"><font size="4">塔拉尼斯</font></p>
-            『靈魂加農砲˙腔室能源填充開始』
+            『靈魂加農炮．腔室能源填充開始』
         </div>
         <div class="page" id="page11" style="display:none;">
             <p align="left"><font size="4">塔拉尼斯</font></p>
@@ -197,12 +232,12 @@
         </div>
         <div class="page" id="page12" style="display:none;">
             <p align="left"><font size="4">塔拉尼斯</font></p>
-            『自動攻擊模式下靈魂加農砲發射系統開始執行』
+            『自動攻擊模式下靈魂加農炮發射系統開始執行』
         </div>
         <div class="page" id="page13" style="display:none;">
             <p align="left"><font size="4">波隆</font></p>
             哇哇！這次又是什麼！？<br>
-            靈魂加農砲，那是什麼啊～！？
+            靈魂加農炮，那是什麼啊～！？
         </div>
         <div class="page" id="page14" style="display:none;">
             <p align="left"><font size="4">索克斯</font></p>
@@ -237,7 +272,7 @@
         </div>
         <div class="page" id="page19" style="display:none;">
             <p align="left"><font size="4">塔拉尼斯</font></p>
-            『靈魂加農砲發射３秒前』
+            『靈魂加農炮發射３秒前』
         </div>
         <div class="page" id="page20" style="display:none;">
             <p align="left"><font size="4">塔拉尼斯</font></p>
@@ -337,7 +372,7 @@
             <img src="插圖/94.png" width="90%"/>
         </div>
             <p align="left"><font size="4">漢娜</font></p>
-            因為房間里太熱了，所以到外面了嗎……
+            因為房間裡太熱了，所以到外面了嗎……
         </div>
         <div class="page" id="page34.5" style="display:none;">
         <div class="column">
@@ -378,14 +413,14 @@
             <img src="插圖/94.png" width="90%"/>
         </div>
             <p align="left"><font size="4">收音機</font></p>
-            已經確認了靈魂加農砲的發射……看來有誰成為了加農炮的能量，對吧……？
+            已經確認了靈魂加農炮的發射……看來有誰成為了加農炮的能量，對吧……？
         </div>
         <div class="page" id="page38" style="display:none;">
         <div class="column">
             <img src="插圖/94.png" width="90%"/>
         </div>
             <p align="left"><font size="4">收音機</font></p>
-            這輛戰車的主砲，『靈魂加農炮』有著不管是什麼樣的敵人都能粉碎的力量……
+            這輛戰車的主炮，『靈魂加農炮』有著不管是什麼樣的敵人都能粉碎的力量……
         </div>
         <div class="page" id="page39" style="display:none;">
         <div class="column">
@@ -399,7 +434,7 @@
             <img src="插圖/94.png" width="90%"/>
         </div>
             <p align="left"><font size="4">收音機</font></p>
-            靈魂加農砲被發射了，代表有誰成為了能量，消失了吧……
+            靈魂加農炮被發射了，代表有誰成為了能量，消失了吧……
         </div>
         <div class="page" id="page41" style="display:none;">
         <div class="column">
@@ -441,7 +476,7 @@
             <img src="插圖/94.png" width="90%"/>
         </div>
             <p align="left"><font size="4">旁白</font></p>
-            孩子們，無法完全了解從收音機里所傳達出的話語含義。
+            孩子們，無法完全了解從收音機裡所傳達出的話語含義。
         </div>
         <div class="page" id="page47" style="display:none;">
         <div class="column">
@@ -567,7 +602,7 @@
             <img src="插圖/109.png" width="90%"/>
         </div>
             <p align="left"><font size="4">收音機</font></p>
-            我會一直在這裡，守護著大家的…
+            我會一直在這裡，守護著大家的……
         </div>
         <div class="page" id="page66" style="display:none;">
         <div class="column">
@@ -719,7 +754,7 @@
         <div class="column">
             <img src="插圖/106.png" width="90%"/>
         </div>
-            <p align="left"><font size="4">波隆</font></p>
+            <p align="left"><font size="4">馬爾托</font></p>
             必須跟他說，隨時都能依賴身為大哥的我<br>
             讓他安心才行！
         </div>
@@ -946,14 +981,14 @@
         </div>
             <p align="left"><font size="4">索克斯</font></p>
             在上面有個會移動的部分……<br>
-            看起來是不想收到我們攻擊的樣子……！
+            看起來是不想受到我們攻擊的樣子……！
         </div>
         <div class="page" id="page119" style="display:none;">
         <div class="column">
             <img src="插圖/109.png" width="90%"/>
         </div>
             <p align="left"><font size="4">馬爾托</font></p>
-            好……朝娜個位置攻擊試試看！死馬當活馬醫！
+            好……朝那個位置攻擊試試看！死馬當活馬醫！
         </div>
         <div class="page" id="page120" style="display:none;">
             <p align="center"><font size="5">（激烈的戰鬥後）</font></p>
@@ -961,7 +996,7 @@
         <div class="page" id="page121" style="display:none;">
             <p align="left"><font size="4">布雷榭爾</font></p>
             這是什麼戰車啊……!<br>
-            真的是那些孩子讓他動起來的嗎……？
+            真的是那些孩子讓它動起來的嗎……？
         </div>
         <div class="page" id="page122" style="display:none;">
             <p align="left"><font size="4">布雷榭爾</font></p>
@@ -989,7 +1024,7 @@
             <img src="插圖/109.png" width="90%"/>
         </div>
             <p align="left"><font size="4">波隆</font></p>
-            嗯……嘿嘿嘿<br>
+            嗯……嘿嘿嘿～<br>
             不知怎麼的，一安心下來之後肚子就餓了呢～……
         </div>
         <div class="page" id="page127" style="display:none;">
@@ -1106,7 +1141,7 @@
             <img src="插圖/109.png" width="90%"/>
         </div>
             <p align="left"><font size="4">收音機</font></p>
-            一定也會有後悔的時候……但是，迷網的話會連後悔都來不及，大家都會死的……
+            一定也會有後悔的時候……但是，迷惘的話會連後悔都來不及，大家都會死的……
         </div>
         <div class="page" id="page148" style="display:none;">
         <div class="column">
@@ -1117,7 +1152,7 @@
         </div>
         <div class="page" id="page149" style="display:none;">
             <p align="left"><font size="4">旁白</font></p>
-            孩子們雖然並不能理解從收音機里聽到的所有意涵，<br>
+            孩子們雖然並不能理解從收音機裡聽到的所有意涵，<br>
             但只有這點是明白的……
         </div>
         <div class="page" id="page150" style="display:none;">
@@ -1156,16 +1191,18 @@
             至今為止的戰功中，最有價值的一份工作了。
         </div>
         <div class="page" id="page155" style="display:none;">
-            <p align="center"><font size="6">第一章結束</font></p>
+            <p align="center"><font size="6">第一樂章　終</font></p>
         </div>
+    </div>
 
     </div>
-    <div>
+    <div class="fixed-container">
         <button class="button prev-button disabled" id="prev-button" disabled>上一頁</button>
         <button class="button next-button" id="next-button">下一頁</button>
     </div>
 
     <script>
+    /*
     function goToPage() {
     // 獲取輸入的頁碼
     const input = document.getElementById('page-input');
@@ -1184,7 +1221,136 @@
     // 清空輸入框
     input.value = '';
     }
-        // 鍵盤控制上下頁
+    */
+    
+    document.addEventListener("DOMContentLoaded", function () {
+    const music = document.getElementById("background-music");
+
+    // 定義要播放音樂的頁面 ID 範圍
+    const musicPages = [
+        "page65", "page29", "page30", "page31", "page32", "page33", "page34", 
+        "page35", "page36", "page37", "page38", "page39", "page40", "page41", 
+        "page42", "page43", "page44", "page45", "page46", "page47", "page48", 
+        "page49", "page50", "page51", "page52", "page53", "page54", "page55", 
+        "page56", "page57", "page58", "page59", "page60", "page61", "page62", 
+        "page63", "page64", "page34.5", "page32.5", "page35.3", "page49.5",
+        "page54.5", "page35.6",
+    ];
+
+    // 判斷當前頁面是否在播放音樂的範圍內
+    function isMusicPageVisible() {
+        return musicPages.some(pageId => {
+            const page = document.getElementById(pageId);
+            return page && page.style.display !== "none";  // 頁面顯示且不是隱藏的
+        });
+    }
+
+    // 播放音樂的邏輯
+    function playMusic() {
+        if (!music.paused) return; // 音樂已經播放，不做任何操作
+        music.play();
+        sessionStorage.setItem("musicPlaying", "true");
+    }
+
+    // 停止音樂的邏輯
+    function stopMusic() {
+        music.pause();
+        sessionStorage.removeItem("musicPlaying");
+    }
+
+    // 初始化音樂
+    if (isMusicPageVisible()) {
+        if (!sessionStorage.getItem("musicPlaying")) {
+            playMusic();
+        }
+    }
+
+    // 偵測頁面顯示變化並控制音樂
+    const observer = new MutationObserver(() => {
+        if (isMusicPageVisible()) {
+            playMusic(); // 如果範圍內有頁面顯示，則播放音樂
+        } else {
+            stopMusic(); // 如果沒有頁面顯示，則停止音樂
+        }
+    });
+
+    // 監視所有目標頁面
+    musicPages.forEach(pageId => {
+        const page = document.getElementById(pageId);
+        if (page) {
+            observer.observe(page, { attributes: true, attributeFilter: ["style"] });
+        }
+    });
+
+    // 鍵盤控制頁面顯示
+    const pages = document.querySelectorAll('.page');
+    let currentPageIndex = 0;
+
+    // 顯示當前頁面
+    function showPage(index) {
+        pages.forEach((page, idx) => {
+            page.style.display = (idx === index) ? 'block' : 'none';
+        });
+        updateButtonState();
+    }
+
+    // 更新按鈕狀態
+    function updateButtonState() {
+        const prevButton = document.getElementById('prev-button');
+        prevButton.disabled = currentPageIndex === 0;
+        document.getElementById('next-button').disabled = currentPageIndex === pages.length - 1;
+        prevButton.classList.toggle('disabled', currentPageIndex === 0);
+        document.getElementById('next-button').classList.toggle('disabled', currentPageIndex === pages.length - 1);
+
+        // 如果不在第一頁，將"上一頁"按鈕改為綠色
+        if (currentPageIndex > 0) {
+            prevButton.style.backgroundColor = '#5fdb77';
+        } else {
+            prevButton.style.backgroundColor = 'gray';
+        }
+    }
+
+    // 下一頁按鈕
+    document.getElementById('next-button').addEventListener('click', () => {
+        if (currentPageIndex < pages.length - 1) {
+            currentPageIndex++;
+            showPage(currentPageIndex);
+        }
+    });
+
+    // 上一頁按鈕
+    document.getElementById('prev-button').addEventListener('click', () => {
+        if (currentPageIndex > 0) {
+            currentPageIndex--;
+            showPage(currentPageIndex);
+        }
+    });
+
+    // 偵測頁面切換並播放音樂
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') {
+            if (currentPageIndex < pages.length - 1) {
+                currentPageIndex++;
+                showPage(currentPageIndex);
+            }
+        } else if (event.key === 'ArrowLeft') {
+            if (currentPageIndex > 0) {
+                currentPageIndex--;
+                showPage(currentPageIndex);
+            }
+        }
+    });
+
+    // 初始顯示第一頁
+    showPage(currentPageIndex);
+
+    // 清理狀態（離開範圍時）
+    window.addEventListener("beforeunload", () => {
+        stopMusic();
+    });
+});
+
+    // 鍵盤控制上下頁
     document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
         // 右箭頭鍵，切換到下一頁
@@ -1221,7 +1387,7 @@
 
             // 如果不在第一頁，將"上一頁"按鈕改為綠色
             if (currentPageIndex > 0) {
-                prevButton.style.backgroundColor = 'green';
+                prevButton.style.backgroundColor = '#5fdb77';
             } else {
                 prevButton.style.backgroundColor = 'gray';
             }

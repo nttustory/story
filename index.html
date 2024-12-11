@@ -14,11 +14,13 @@
             position: relative; /* 為了讓 z-index 生效 */
         }
         .nav {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 10px;
-            margin-bottom: 15px;
-            width: %;
+            position: absolute;
+            top: 14%;
+            left: 9%;
         }
         .nav a {
             text-decoration: none;
@@ -27,6 +29,7 @@
             color: white;
             border-radius: 5px;
             text-align: center; /* 文字置中 */
+            width: 85%;
         }
         .nav a.enabled {
             background-color: #601c0f; /* 按鈕的顏色 */
@@ -40,8 +43,8 @@
         }
         .iframe-container {
             width: 100%; /* 讓容器寬度自適應 */
-            aspect-ratio: 11 / 9; /* 設置比例為 16:9 */
-            border: 5px solid #ccc; /* 可選：邊框樣式 */
+            aspect-ratio: 15/13 ; /* 設置比例為 16:9 */
+            border: 5px solid rgba(206, 206, 206, 0.350); /* 可選：邊框樣式 */
             justify-content: center; /* 中間對齊 */
         }
         iframe {
@@ -70,18 +73,18 @@
     </div>
 
     <div class="nav">
-        <a href="chapter1.html" target="contentFrame" class="enabled" onclick="markAsRead(1)">章節 1</a>
-        <a href="chapter2.html" target="contentFrame" class="hidden" onclick="markAsRead(2)">章節 2</a>
-        <a href="chapter3.html" target="contentFrame" class="hidden" onclick="markAsRead(3)">章節 3</a>
-        <a href="chapter4.html" target="contentFrame" class="hidden" onclick="markAsRead(4)">章節 4</a>
-        <a href="chapter5.html" target="contentFrame" class="hidden" onclick="markAsRead(5)">章節 5</a>
-        <a href="chapter6.html" target="contentFrame" class="hidden" onclick="markAsRead(6)">章節 6</a>
-        <a href="chapter7.html" target="contentFrame" class="hidden" onclick="markAsRead(7)">章節 7</a>
-        <a href="chapter8.html" target="contentFrame" class="hidden" onclick="markAsRead(8)">章節 8</a>
-        <a href="chapter9.html" target="contentFrame" class="hidden" onclick="markAsRead(9)">章節 9</a>
-        <a href="chapter10.html" target="contentFrame" class="hidden" onclick="markAsRead(10)">章節 10</a>
-        <a href="chapter11.html" target="contentFrame" class="hidden" onclick="markAsRead(11)">章節 11</a>
-        <a href="chapter12.html" target="contentFrame" class="hidden" onclick="markAsRead(12)">章節 12</a>
+        <a href="chapter1.html" target="contentFrame" class="enabled" onclick="markAsRead(1)">第１樂章</a>
+        <a href="chapter2.html" target="contentFrame" class="hidden" onclick="markAsRead(2)">第２樂章</a>
+        <a href="chapter3.html" target="contentFrame" class="hidden" onclick="markAsRead(3)">第３樂章</a>
+        <a href="chapter4.html" target="contentFrame" class="hidden" onclick="markAsRead(4)">第４樂章</a>
+        <a href="chapter5.html" target="contentFrame" class="hidden" onclick="markAsRead(5)">第５樂章</a>
+        <a href="chapter6.html" target="contentFrame" class="hidden" onclick="markAsRead(6)">第６樂章</a>
+        <a href="chapter7.html" target="contentFrame" class="hidden" onclick="markAsRead(7)">第７樂章</a>
+        <a href="chapter8.html" target="contentFrame" class="hidden" onclick="markAsRead(8)">第８樂章</a>
+        <a href="chapter9.html" target="contentFrame" class="hidden" onclick="markAsRead(9)">第９樂章</a>
+        <a href="chapter10.html" target="contentFrame" class="hidden" onclick="markAsRead(10)">第１０樂章</a>
+        <a href="chapter11.html" target="contentFrame" class="hidden" onclick="markAsRead(11)">第１１樂章</a>
+        <a href="chapter12.html" target="contentFrame" class="hidden" onclick="markAsRead(12)">第１２樂章</a>
         <div class="character-row">
             <a href="character.html" target="contentFrame" id="characterButton" class="hidden" onclick="unlockCharacter()">人物介紹</a>
         </div>

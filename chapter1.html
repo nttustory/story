@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>第一樂章 無盡的夜晚</title>
     <style>
+        body {font-family: "標楷體", sans-serif; /* 更改字體為標楷體 */}
         body {
             background-size: cover;
             color: #fff;
@@ -31,29 +32,69 @@
             cursor: pointer;
         }
         .next-button {
-            background-color: green;
-            color: white;
+            font-family: "標楷體", DFKai-SB, "KaiTi", serif; /* 設定為標楷體，含備選字體 */
+            border-radius: 10px; /* 圓角邊框，10px 可根據需求調整 */
+            padding: 10px 20px; /* 調整按鈕的內邊距 */
+            font-size: 16px; /* 設定按鈕文字大小 */
+            border: 2px solid #ccc; /* 邊框顏色及粗細 */
+            cursor: pointer; /* 設定游標為手型 */
+            background-color: #5fdb77; /* 按鈕背景色 */
+            color: #333; /* 文字顏色 */
+            transition: all 0.3s ease; /* 增加滑順過渡效果 */
         }
         .prev-button {
-            background-color: gray;
-            color: white;
+            font-family: "標楷體", DFKai-SB, "KaiTi", serif; /* 設定為標楷體，含備選字體 */
+            border-radius: 10px; /* 圓角邊框，10px 可根據需求調整 */
+            padding: 10px 20px; /* 調整按鈕的內邊距 */
+            font-size: 16px; /* 設定按鈕文字大小 */
+            border: 2px solid #ccc; /* 邊框顏色及粗細 */
+            cursor: pointer; /* 設定游標為手型 */
+            background-color: #5fdb77; /* 按鈕背景色 */
+            color: #333; /* 文字顏色 */
+            transition: all 0.3s ease; /* 增加滑順過渡效果 */
         }
+        /*
+        .jump-button {
+            font-family: "標楷體", sans-serif;
+            background-color: #1e1e60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            &:hover {
+                background-color: #3e3e8e; 
+            }
+        }
+        */
         .disabled {
             background-color: gray;
             cursor: not-allowed;
+        }
+        .fixed-container {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+        #chapter-title {
+            color: #292e2c;
         }
     </style>
 </head>
 <body>
 
-    <h1>第一樂章　無盡的夜晚</h1>
-    
-    <!-- 跳轉到指定頁面的輸入框和按鈕 -->
+    <h1 id="chapter-title">第一樂章　無盡的夜晚</h1>
+
+    <!-- 
+    跳轉到指定頁面的輸入框和按鈕 
     <div style="margin: 20px;">
-        <label for="page-input">輸入頁碼：</label>
+        <label for="page-input">請輸入頁碼到達指定頁面：</label>
         <input type="number" id="page-input" style="width: 50px;">
-        <button onclick="goToPage()">跳轉</button>
+        <button class="jump-button" onclick="goToPage()">跳轉</button>
     </div>
+    -->
 
     <div id="text-blocks" class="text-block">
         <!-- 每一段文字作為單獨的元素 -->
@@ -156,7 +197,7 @@
             <div class="column">
             <img src="插圖/109.png" width="80%"  />
         </div>
-            <p align="center"><font size="5">（一聲巨響)</font></p>
+            <p align="center"><font size="5">（一聲巨響）</font></p>
         </div>
         <div class="page" id="page15" style="display:none;">
             <div class="column">
@@ -275,7 +316,7 @@
             <img src="插圖/109.png" width="80%"  />
         </div>
             <p align="left"><font size="4">貝爾曼軍士兵</font></p>
-            總、總之先撤退……撤退！。
+            總、總之先撤退……撤退！
         </div>
         <div class="page" id="page32" style="display:none;">
             <div class="column">
@@ -425,7 +466,7 @@
         </div>
             <p align="left"><font size="4">村民</font></p>
             咱們的村莊……<br>
-            美麗的布奇˙蒙娜村啊……！！
+            美麗的布奇．蒙娜村啊……！！
         </div>
         <div class="page" id="page57" style="display:none;">
         <div class="column">
@@ -521,14 +562,14 @@
         <div class="column">
             <img src="插圖/6.png" width="90%"/>
         </div>
-            <p align="left"><font size="4">布雷謝爾</font></p>
+            <p align="left"><font size="4">布雷榭爾</font></p>
             …………
         </div>
         <div class="page" id="page72" style="display:none;">
         <div class="column">
             <img src="插圖/6.png" width="90%"/>
         </div>
-            <p align="left"><font size="4">布雷謝爾</font></p>
+            <p align="left"><font size="4">布雷榭爾</font></p>
             但……雖說是命令，為何有必要對這毫無戰略意義的村落展開襲擊呢……
         </div>
         <div class="page" id="page73" style="display:none;">
@@ -704,7 +745,7 @@
             嗯、嗚嗯……
         </div>
         <div class="page" id="page98" style="display:none;">
-            <p align="center"><font size="5">（巨大戰車內)</font></p>
+            <p align="center"><font size="5">（巨大戰車內）</font></p>
         </div>
         <div class="page" id="page99" style="display:none;">
         <div class="column">
@@ -819,7 +860,7 @@
         </video>
         </div>
         <div class="page" id="page115" style="display:none;">
-            <p align="center"><font size="5">（回到現在，塔拉尼斯又挨了砲擊）</font></p>
+            <p align="center"><font size="5">（回到現在，塔拉尼斯又挨了炮擊）</font></p>
         </div>
         <div class="page" id="page116" style="display:none;">
             <p align="left"><font size="4">馬爾托</font></p>
@@ -846,7 +887,7 @@
         </div>
         <div class="page" id="page122" style="display:none;">
             <p align="left"><font size="4">漢娜</font></p>
-            因為突然就用這種戰車戰鬥起來了……野蠻擔心其他人的身體狀況呢。
+            因為突然就用這種戰車戰鬥起來了……也蠻擔心其他人的身體狀況呢。
         </div>
         <div class="page" id="page123" style="display:none;">
             <p align="left"><font size="4">馬爾托</font></p>
@@ -867,7 +908,7 @@
             <img src="插圖/106.png" width="90%"/>
         </div>
             <p align="left"><font size="4">索克斯</font></p>
-            在產程的內部居然有可以生活的設施什麼的，真是厲害的技術呢！
+            在戰車的內部居然有可以生活的設施什麼的，真是厲害的技術呢！
         </div>
         <div class="page" id="page127" style="display:none;">
         <div class="column">
@@ -888,8 +929,15 @@
             <img src="插圖/106.png" width="90%"/>
         </div>
             <p align="left"><font size="4">漢娜</font></p>
-            戰車裡面居然還有廚房！這樣一來還可以幫大家準備餐點呢！
+            好香喔～漢娜姐姐在做什麼？
         </div>
+        <div class="page" id="page129.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="90%"/>
+            </div>
+                <p align="left"><font size="4">漢娜</font></p>
+                戰車裡面居然還有廚房！這樣一來還可以幫大家準備餐點呢！
+            </div>
         <div class="page" id="page130" style="display:none;">
         <div class="column">
             <img src="插圖/106.png" width="90%"/>
@@ -909,8 +957,15 @@
         <div class="column">
             <img src="插圖/106.png" width="90%"/>
         </div>
+            <p align="left"><font size="4">小梅</font></p>
+            索克斯哥哥在看什麼？
+        </div>
+        <div class="page" id="page132.5" style="display:none;">
+        <div class="column">
+            <img src="插圖/106.png" width="90%"/>
+        </div>
             <p align="left"><font size="4">索克斯</font></p>
-            真、真是厲害的技術呢！
+            真、真是厲害的技術呢！這個工作坊的工具很齊全呢！
         </div>
         <div class="page" id="page133" style="display:none;">
         <div class="column">
@@ -923,9 +978,16 @@
         <div class="column">
             <img src="插圖/106.png" width="90%"/>
         </div>
-            <p align="left"><font size="4">凱爾</font></p>
-            因為有釣竿，就是著垂放到地面，結果釣到很多沒用的垃圾呢。
+            <p align="left"><font size="4">小梅</font></p>
+            凱爾哥哥在做什麼？
         </div>
+        <div class="page" id="page134.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="90%"/>
+            </div>
+                <p align="left"><font size="4">凱爾</font></p>
+                因為有釣竿，就試著垂放到地面，結果釣到很多沒用的垃圾呢。
+            </div>
         <div class="page" id="page135" style="display:none;">
         <div class="column">
             <img src="插圖/106.png" width="90%"/>
@@ -1218,15 +1280,15 @@
         </div>
         <div class="page" id="page179" style="display:none;">
             <p align="left"><font size="4">旁白</font></p>
-            就在危急的情況下，塔拉尼斯被密藏起來的「靈魂加農砲」開啟了
+            就在危急的情況下，塔拉尼斯被密藏起來的「靈魂加農炮」開啟了
         </div>
         <div class="page" id="page180" style="display:none;">
-            <p align="center"><font size="5" color="#FF0000"><strong>警告</strong></font></p>
-            <strong>靈魂加農砲是以一個孩子的覺悟作為代價將全部的敵人都殲滅掉的最終兵器</strong>
+            <p align="center"><font size="5" color="#FF0000"><strong>⚠警告</strong></font></p>
+            <strong>靈魂加農炮是以一個孩子的覺悟作為代價將全部的敵人都殲滅掉的最終兵器</strong>
         </div>
         <div class="page" id="page180.5" style="display:none;">
             <p align="center"><font size="5" color="#FF0000"><strong>⚠警告</strong></font></p>
-            <p align="left"><font size="4">就算是這樣還是要使用嗎？</font></p>
+            <p align="center"><font size="4">就算是這樣還是要使用嗎？</font></p>
         </div>
         <div class="page" id="page181" style="display:none;">
             <div class="nav">
@@ -1245,15 +1307,17 @@
             </tr>
             </table>
             </div>
+            <p align="center"><font size="5" color="#FFD700"><strong>選擇後將無法變更</strong></font></p>
         </div>
     </div>
     
-    <div>
+    <div class="fixed-container">
         <button class="button prev-button disabled" id="prev-button" disabled>上一頁</button>
         <button class="button next-button" id="next-button">下一頁</button>
     </div>
 
     <script>
+    /*
     function goToPage() {
     // 獲取輸入的頁碼
     const input = document.getElementById('page-input');
@@ -1272,6 +1336,7 @@
     // 清空輸入框
     input.value = '';
     }
+    */
         // 鍵盤控制上下頁
     document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
@@ -1309,7 +1374,7 @@
 
             // 如果不在第一頁，將"上一頁"按鈕改為綠色
             if (currentPageIndex > 0) {
-                prevButton.style.backgroundColor = 'green';
+                prevButton.style.backgroundColor = '#5fdb77';
             } else {
                 prevButton.style.backgroundColor = 'gray';
             }
