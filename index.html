@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>戰場賦格曲：鋼之樂章</title>
     <style>
-        body {font-family: "標楷體", sans-serif; /* 更改字體為標楷體 */}
+        body {
+            font-family: "標楷體", sans-serif;
+            /* 更改字體為標楷體 */
+        }
+
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            z-index: 1; /* 確保內容在背景上方 */
-            position: relative; /* 為了讓 z-index 生效 */
+            z-index: 1;
+            /* 確保內容在背景上方 */
+            position: relative;
+            /* 為了讓 z-index 生效 */
         }
+
         .container {
             display: flex;
             flex-direction: column;
@@ -20,6 +28,7 @@
             z-index: 1;
             position: relative;
         }
+
         .nav {
             display: flex;
             flex-direction: column;
@@ -29,6 +38,7 @@
             top: 14%;
             left: 9%;
         }
+
         .nav a {
             text-decoration: none;
             padding: 10px 20px;
@@ -38,27 +48,33 @@
             text-align: center;
             width: 85%;
         }
+
         .nav a.enabled {
             background-color: #601c0f;
         }
+
         .nav a:hover.enabled {
             background-color: #501511;
         }
+
         .content {
             width: 50%;
             margin-bottom: 20px;
         }
+
         .iframe-container {
             position: relative;
             width: 100%;
             aspect-ratio: 15/13;
             border: 5px solid rgba(206, 206, 206, 0.35);
         }
+
         iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
+
         .iframe-overlay {
             position: absolute;
             top: 0;
@@ -76,9 +92,11 @@
             pointer-events: none;
             z-index: 1;
         }
+
         .hidden {
             display: none;
         }
+
         .character-row {
             grid-column: span 6;
             display: flex;
@@ -86,64 +104,67 @@
         }
     </style>
 </head>
+
 <body>
-<body background="background.png" style="background-size:cover;"> 
-<div class="container">
-    <h1>
-        <a href="https://drive.google.com/drive/folders/1vnaC4F1UpfyJcQ1o8PqCZ9vfeXcgJau6?usp=sharing" target="_blank" style="color: inherit;
+
+    <body background="background.png" style="background-size:cover;">
+        <div class="container">
+            <h1>
+                <a href="https://drive.google.com/drive/folders/1vnaC4F1UpfyJcQ1o8PqCZ9vfeXcgJau6?usp=sharing" target="_blank" style="color: inherit;
              text-decoration: none;">戰場賦格曲：鋼之樂章</a>
-    </h1>
+            </h1>
 
-    <div class="content">
-        <div class="iframe-container">
-            <iframe name="contentFrame"></iframe>
-            <div class="iframe-overlay" id="iframeOverlay">請點擊左列按鈕閱讀故事<br>建議使用電腦閱讀</div>
+            <div class="content">
+                <div class="iframe-container">
+                    <iframe name="contentFrame"></iframe>
+                    <div class="iframe-overlay" id="iframeOverlay">請點擊左列按鈕閱讀故事<br>建議使用電腦閱讀</div>
+                </div>
+            </div>
+
+            <div class="nav">
+                <a href="chapter1.html" target="contentFrame" class="enabled" onclick="markAsRead(1)">第１樂章</a>
+                <a href="chapter2.html" target="contentFrame" class="hidden" onclick="markAsRead(2)">第２樂章</a>
+                <a href="chapter3.html" target="contentFrame" class="hidden" onclick="markAsRead(3)">第３樂章</a>
+                <a href="chapter4.html" target="contentFrame" class="hidden" onclick="markAsRead(4)">第４樂章</a>
+                <a href="chapter5.html" target="contentFrame" class="hidden" onclick="markAsRead(5)">第５樂章</a>
+                <a href="chapter6.html" target="contentFrame" class="hidden" onclick="markAsRead(6)">第６樂章</a>
+                <a href="chapter7.html" target="contentFrame" class="hidden" onclick="markAsRead(7)">第７樂章</a>
+                <a href="chapter8.html" target="contentFrame" class="hidden" onclick="markAsRead(8)">第８樂章</a>
+                <a href="chapter9.html" target="contentFrame" class="hidden" onclick="markAsRead(9)">第９樂章</a>
+                <a href="chapter10.html" target="contentFrame" class="hidden" onclick="markAsRead(10)">第１０樂章</a>
+                <a href="chapter11.html" target="contentFrame" class="hidden" onclick="markAsRead(11)">第１１樂章</a>
+                <a href="chapter12.html" target="contentFrame" class="hidden" onclick="markAsRead(12)">第１２樂章</a>
+                <div class="character-row">
+                    <a href="character.html" target="contentFrame" id="characterButton" class="hidden" onclick="unlockCharacter()">人物介紹</a>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="nav">
-        <a href="chapter1.html" target="contentFrame" class="enabled" onclick="markAsRead(1)">第１樂章</a>
-        <a href="chapter2.html" target="contentFrame" class="hidden" onclick="markAsRead(2)">第２樂章</a>
-        <a href="chapter3.html" target="contentFrame" class="hidden" onclick="markAsRead(3)">第３樂章</a>
-        <a href="chapter4.html" target="contentFrame" class="hidden" onclick="markAsRead(4)">第４樂章</a>
-        <a href="chapter5.html" target="contentFrame" class="hidden" onclick="markAsRead(5)">第５樂章</a>
-        <a href="chapter6.html" target="contentFrame" class="hidden" onclick="markAsRead(6)">第６樂章</a>
-        <a href="chapter7.html" target="contentFrame" class="hidden" onclick="markAsRead(7)">第７樂章</a>
-        <a href="chapter8.html" target="contentFrame" class="hidden" onclick="markAsRead(8)">第８樂章</a>
-        <a href="chapter9.html" target="contentFrame" class="hidden" onclick="markAsRead(9)">第９樂章</a>
-        <a href="chapter10.html" target="contentFrame" class="hidden" onclick="markAsRead(10)">第１０樂章</a>
-        <a href="chapter11.html" target="contentFrame" class="hidden" onclick="markAsRead(11)">第１１樂章</a>
-        <a href="chapter12.html" target="contentFrame" class="hidden" onclick="markAsRead(12)">第１２樂章</a>
-        <div class="character-row">
-            <a href="character.html" target="contentFrame" id="characterButton" class="hidden" onclick="unlockCharacter()">人物介紹</a>
-        </div>
-    </div>
-</div>
+        <script>
+            function markAsRead(chapter) {
+                const overlay = document.getElementById('iframeOverlay');
+                overlay.style.display = 'none'; // 隱藏文字提示
 
-<script>
-    function markAsRead(chapter) {
-        const overlay = document.getElementById('iframeOverlay');
-        overlay.style.display = 'none'; // 隱藏文字提示
+                const chapterLink = document.querySelector(`.nav a:nth-child(${chapter})`);
+                chapterLink.classList.add('read');
 
-        const chapterLink = document.querySelector(`.nav a:nth-child(${chapter})`);
-        chapterLink.classList.add('read');
+                // 解鎖下一章節
+                if (chapter < 12) {
+                    const nextChapterLink = document.querySelector(`.nav a:nth-child(${chapter + 1})`);
+                    nextChapterLink.classList.remove('hidden');
+                    nextChapterLink.classList.add('enabled');
+                } else {
+                    unlockCharacter();
+                }
+            }
 
-        // 解鎖下一章節
-        if (chapter < 12) {
-            const nextChapterLink = document.querySelector(`.nav a:nth-child(${chapter + 1})`);
-            nextChapterLink.classList.remove('hidden');
-            nextChapterLink.classList.add('enabled');
-        } else {
-            unlockCharacter();
-        }
-    }
+            function unlockCharacter() {
+                const characterButton = document.getElementById('characterButton');
+                characterButton.classList.remove('hidden');
+                characterButton.classList.add('enabled');
+            }
+        </script>
 
-    function unlockCharacter() {
-        const characterButton = document.getElementById('characterButton');
-        characterButton.classList.remove('hidden');
-        characterButton.classList.add('enabled');
-    }
-</script>
+    </body>
 
-</body>
 </html>
