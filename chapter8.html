@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第８樂章　橫渡原野的風</title>
+    <style>
+        body {
+            font-family: "標楷體", sans-serif;
+            /* 更改字體為標楷體 */
+        }
+
+        body {
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        .chapter-title {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+
+        .image-block {
+            margin: 20px 0;
+        }
+
+        .text-block {
+            margin: 20px;
+            border: 2px solid #fff;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
+        }
+
+        .next-button {
+            font-family: "標楷體", DFKai-SB, "KaiTi", serif;
+            /* 設定為標楷體，含備選字體 */
+            border-radius: 10px;
+            /* 圓角邊框，10px 可根據需求調整 */
+            padding: 10px 20px;
+            /* 調整按鈕的內邊距 */
+            font-size: 16px;
+            /* 設定按鈕文字大小 */
+            border: 2px solid #ccc;
+            /* 邊框顏色及粗細 */
+            cursor: pointer;
+            /* 設定游標為手型 */
+            background-color: #5fdb77;
+            /* 按鈕背景色 */
+            color: #333;
+            /* 文字顏色 */
+            transition: all 0.3s ease;
+            /* 增加滑順過渡效果 */
+        }
+
+        .prev-button {
+            font-family: "標楷體", DFKai-SB, "KaiTi", serif;
+            /* 設定為標楷體，含備選字體 */
+            border-radius: 10px;
+            /* 圓角邊框，10px 可根據需求調整 */
+            padding: 10px 20px;
+            /* 調整按鈕的內邊距 */
+            font-size: 16px;
+            /* 設定按鈕文字大小 */
+            border: 2px solid #ccc;
+            /* 邊框顏色及粗細 */
+            cursor: pointer;
+            /* 設定游標為手型 */
+            background-color: #5fdb77;
+            /* 按鈕背景色 */
+            color: #333;
+            /* 文字顏色 */
+            transition: all 0.3s ease;
+            /* 增加滑順過渡效果 */
+        }
+
+        /*
+        .jump-button {
+            font-family: "標楷體", sans-serif;
+            background-color: #1e1e60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            &:hover {
+                background-color: #3e3e8e; 
+            }
+        }
+        */
+        .disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+
+        .fixed-container {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        #chapter-title {
+            color: #292e2c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="chapter-title">第８樂章　橫渡原野的風</h1>
+
+    <!-- 
+    跳轉到指定頁面的輸入框和按鈕 
+    <div style="margin: 20px;">
+        <label for="page-input">請輸入頁碼到達指定頁面：</label>
+        <input type="number" id="page-input" style="width: 50px;">
+        <button class="jump-button" onclick="goToPage()">跳轉</button>
+    </div>
+    -->
+
+    <audio id="background-music" loop>
+        <source src="音樂/爆炸音效.mp3" type="audio/mpeg">
+        您的瀏覽器不支援音樂撥放。
+    </audio>
+
+    <div id="text-blocks" class="text-block">
+        <!-- 每一段文字作為單獨的元素 -->
+        <div class="page" id="page1" style="display:none;">
+            <div class="column">
+                <img src="插圖/132.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="5">卡斯科　穀倉地帶</font>
+            </p>
+        </div>
+        <div class="page visible" id="page1.5">
+            <div class="column">
+                <img src="插圖/132.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            在得知被貝爾曼帝國囚禁的一部分人們，被當成<br>
+            生物電池而失去生命，受到如此衝擊孩子們
+        </div>
+        <div class="page" id="page2" style="display:none;">
+            <div class="column">
+                <img src="插圖/132.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            一邊思考著自己家人並不在那裡是不幸中的大幸，<br>
+            一邊朝著規模最大的收容所地點——拉薩．阿布梭熔岩地帶前進。
+        </div>
+        <div class="page" id="page3" style="display:none;">
+            <div class="column">
+                <img src="插圖/132.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            一邊祈禱著不會受到更殘忍、更不人道的虐待……
+        </div>
+        <div class="page" id="page4" style="display:none;">
+            <div class="column">
+                <img src="插圖/132.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">小梅</font>
+            </p>
+            爺爺和奶奶不在呢……
+        </div>
+        <div class="page" id="page5" style="display:none;">
+            <div class="column">
+                <img src="插圖/132.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            大家一定都在等著我們的，一起加油吧。
+        </div>
+        <div class="page" id="page6" style="display:none;">
+            <div class="column">
+                <img src="插圖/132.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">琪克</font>
+            </p>
+            爸爸、媽媽，不曉得過得好不好……
+        </div>
+        <div class="page" id="page6.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/132.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            一定沒問題的！！<br>
+            只要我們好好的，他們也一定會沒事的！！
+        </div>
+        <div class="page" id="page7" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page7.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            對平常話很少，獨處時間較多的布利茲<br>
+            感到生疏的孩子們，雖然感到困惑也嘗試和他說話。
+        </div>
+        <div class="page" id="page8" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            要不要試著多和大家說說話？如果你願意的話……
+        </div>
+        <div class="page" id="page9" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">琪克</font>
+            </p>
+            那個……跟大家更親密相處一點會比較好喔？
+        </div>
+        <div class="page" id="page10" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            那個……不再多跟大家說說話嗎？
+        </div>
+        <div class="page" id="page11" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            我可是貝爾曼人……不用勉強和我說話，<br>
+            我只是在報答救命之恩而已……
+        </div>
+        <div class="page" id="page12" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            雖然是相對冷淡的回覆，但因為並非被拒絕，<br>
+            所以繼續詢問有關於貝爾曼帝國的事。
+        </div>
+        <div class="page" id="page13" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            並沒有什麼愉快的事情喔……
+        </div>
+        <div class="page" id="page14" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            要說的話……和這個國家相比，<br>
+            軍事或名譽擁有更巨大的力量這點吧……
+        </div>
+        <div class="page" id="page14.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/34.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            …………
+        </div>
+        <div class="page" id="page15" style="display:none;">
+            <div class="column">
+                <img src="插圖/34.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            ……我的母親和妹妹也很辛苦……<br>
+            現在在哪裡，過得如何也完全不曉得……
+        </div>
+        <div class="page" id="page16" style="display:none;">
+            <div class="column">
+                <img src="插圖/34.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            布利茲一邊說著一邊拿出有放著家人合照的吊墜，<br>
+            用一臉凝重的表情緊緊盯著。
+        </div>
+        <div class="page" id="page17" style="display:none;">
+            <div class="column">
+                <img src="插圖/34.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            孩子們對於布利茲也是被強迫與家人分離的這件事，深感同情。
+        </div>
+        <div class="page" id="page17.5" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page18" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            奇怪～？<br>
+            我放在餐廳的布里歐麵包沒了啦～！
+        </div>
+        <div class="page" id="page19" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            哎呀，是放在餐廳嗎？
+        </div>
+        <div class="page" id="page20" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            我剛剛在餐廳，可是什麼也沒看到耶。
+        </div>
+        <div class="page" id="page21" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            咦？你剛才在餐廳嗎……這、這樣啊。
+        </div>
+        <div class="page" id="page22" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            嗯……
+        </div>
+        <div class="page" id="page23" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            看你們懷疑成這樣，我還是聲明一下。<br>
+            我不但什麼都沒看到，也從不偷別人的食物。
+        </div>
+        <div class="page" id="page24" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            不過要不要相信我這個貝爾曼人說的話是你們的自由，<br>
+            況且我也不在意這種事。
+        </div>
+        <div class="page" id="page25" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page25.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            啊！啊啊啊～！！<br>
+            是我之前不見的布里歐麵包～！
+        </div>
+        <div class="page" id="page26" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            找到了嗎？
+        </div>
+        <div class="page" id="page27" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            嗯，放在餐廳會被吃掉，<br>
+            所以我把它藏到其他地方，結果卻忘記了～抱歉啦～
+        </div>
+        <div class="page" id="page28.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            哈哈哈……總、總之真是太好了。波隆，你真是的。
+        </div>
+        <div class="page" id="page28" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            這樣啊……有找到就好。
+        </div>
+        <div class="page" id="page29" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            我也說了，我不會在意這種事。
+        </div>
+        <div class="page" id="page30" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            ……我連在貝爾曼都老是被人懷疑，<br>
+            已經習慣了。
+        </div>
+        <div class="page" id="page31" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            布利茲……我……我……
+        </div>
+        <div class="page" id="page32" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            沒事啦……真的。
+        </div>
+        <div class="page" id="page33" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            我先走了。
+        </div>
+        <div class="page" id="page33.5" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page34" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            在與期待背道而馳的狀況不斷持續地當下，<br>
+            發光少女的幻影再次顯現在孩子們的面前。
+        </div>
+        <div class="page" id="page35" style="display:none;">
+            <div class="column">
+                <img src="插圖/37.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            為什麼，要戰鬥呢……戰鬥的話……會死的……
+        </div>
+        <div class="page" id="page36" style="display:none;">
+            <div class="column">
+                <img src="插圖/37.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            我……不會讓大家死去的……<br>
+            拜託……請別再繼續戰鬥下去了……
+        </div>
+        <div class="page" id="page37" style="display:none;">
+            <div class="column">
+                <img src="插圖/37.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            『在拯救到大家之前，不能輕言放棄的』
+        </div>
+        <div class="page" id="page38" style="display:none;">
+            <div class="column">
+                <img src="插圖/37.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            如果現在放棄的話，至今為止的戰鬥就會變得毫無意義，<br>
+            孩子們抱持著強烈的態度答覆少女。
+        </div>
+        <div class="page" id="page39" style="display:none;">
+            <div class="column">
+                <img src="插圖/37.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            那與其說是用來反駁少女的話語，<br>
+            更像是在為了說給自己聽。定下決意的一句話。
+        </div>
+        <div class="page" id="page40" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            我……也不會放棄的……
+        </div>
+        <div class="page" id="page41" style="display:none;">
+            <div class="column">
+                <img src="插圖/106.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            留下這麼一句話後，少女便消失得無影無蹤。
+        </div>
+        <div class="page" id="page42" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page43" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貝爾曼軍士兵Ａ</font>
+            </p>
+            不會再讓你們前進了！
+        </div>
+        <div class="page" id="page44" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貝爾曼軍士兵Ｂ</font>
+            </p>
+            要把你們擋在這裡！
+        </div>
+        <div class="page" id="page45" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            看來似乎不是多厲害的敵人呢！
+        </div>
+        <div class="page" id="page46" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            讓我來見識見識塔拉尼斯的力量與各位的決心吧！
+        </div>
+        <div class="page" id="page47" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            那個是強化型的量產型戰車……<br>
+            靠著這輛戰車冷靜應對的話是沒有問題的。
+        </div>
+        <div class="page" id="page48" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            讓我先來破壞裝甲！
+        </div>
+        <div class="page" id="page49" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            不要太勉強啊，凱爾。
+        </div>
+        <div class="page" id="page50" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="5">(戰鬥結束後)</font>
+            </p>
+        </div>
+        <div class="page" id="page51" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貝爾曼軍士兵Ａ</font>
+            </p>
+            不、不行了……快逃！！
+        </div>
+        <div class="page" id="page52" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貝爾曼軍士兵Ｂ</font>
+            </p>
+            那、那個怪物……靠我們是擋不住的！
+        </div>
+        <div class="page" id="page53" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            將貝爾曼帝國軍逼退的孩子們，<br>
+            以拉薩．阿布梭熔岩地帶為目標，繼續向前邁進。
+        </div>
+        <div class="page" id="page53.2" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            走吧，我們不能放棄！
+        </div>
+        <div class="page" id="page53.3" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            總之不去的話，原本能救得了的人們也會救不成的！
+        </div>
+        <div class="page" id="page53.4" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            嗯哼，現在也只能繼續前進了吧！
+        </div>
+        <div class="page" id="page53.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            各位真的都變得更強了呢……現在不論怎樣的敵人襲來，各位也不會有問題的……
+        </div>
+        <div class="page" id="page53.6" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>        
+        <div class="page" id="page54" style="display:none;">
+            <div class="column">
+                <img src="插圖/133.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="5">貝爾曼帝國軍卡斯科侵略部隊　司令部</font>
+            </p>
+        </div>
+        <div class="page" id="page55" style="display:none;">
+            <div class="column">
+                <img src="插圖/36.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">芙蘭姆</font>
+            </p>
+            哈庫斯閣下……這次的失態，在下感到十分抱歉……<br>
+            還有下次機會的話，必定，會把那輛戰車給……
+        </div>
+        <div class="page" id="page56" style="display:none;">
+            <div class="column">
+                <img src="插圖/36.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            『葬送掉嗎？』
+        </div>
+        <div class="page" id="page57" style="display:none;">
+            <div class="column">
+                <img src="插圖/36.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">芙蘭姆</font>
+            </p>
+            是的……！絕對會！
+        </div>
+        <div class="page" id="page58" style="display:none;">
+            <div class="column">
+                <img src="插圖/36.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            『你的義父布雷榭爾上校，在最後賭上了性命<br>
+            展現身為帝國軍人的矜持……那樣的覺悟，妳有嗎？』
+        </div>
+        <div class="page" id="page59" style="display:none;">
+            <div class="column">
+                <img src="插圖/36.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">芙蘭姆</font>
+            </p>
+            這、這是當然！
+        </div>
+        <div class="page" id="page60" style="display:none;">
+            <div class="column">
+                <img src="插圖/36.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            『那還真是可靠……就等妳的好消息吧，希修中校。<br>
+            我不需要從妳那邊聽到，除此之外的報告。』
+        </div>
+        <div class="page" id="page61" style="display:none;">
+            <div class="column">
+                <img src="插圖/36.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">芙蘭姆</font>
+            </p>
+            是……！願貝爾曼榮光永照！
+        </div>
+        <div class="page" id="page67" style="display:none;">
+            <div class="column">
+                <img src="插圖/16.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            雖然我不認為用必死的覺悟那種程度的事，<br>
+            就能處理那惡魔就是了……
+        </div>
+        <div class="page" id="page68" style="display:none;">
+            <div class="column">
+                <img src="插圖/16.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            看來我也該前往他的所在地了……
+        </div>
+        <div class="page" id="page69" style="display:none;">
+            <div class="column">
+                <img src="插圖/16.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            已經確保了能將那『心臟』驅動起來必要數量的生物電池……<br>
+            感謝你啊，托爾托爾……
+        </div>
+        <div class="page" id="page70" style="display:none;">
+            <div class="column">
+                <img src="插圖/16.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            這下將失落之神『芬里爾』，從長眠中喚醒的準備<br>
+            也基本都湊齊了……
+        </div>
+        <div class="page" id="page71" style="display:none;">
+            <div class="column">
+                <img src="插圖/16.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            最後只剩扣下扳機而已……
+        </div>
+        <div class="page" id="page72" style="display:none;">
+            <div class="column">
+                <img src="插圖/16.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            我已經等不及要見面啦，鋼鐵的惡魔呦……哇哈哈哈！！
+        </div>
+        <div class="page" id="page104" style="display:none;">
+            <p align="center">
+                <font size="5">第８樂章　終</font>
+            </p>
+        </div>
+        <div class="fixed-container">
+            <button class="button prev-button disabled" id="prev-button" disabled>上一頁</button>
+            <button class="button next-button" id="next-button">下一頁</button>
+        </div>
+
+        <script>
+            /*
+    function goToPage() {
+    // 獲取輸入的頁碼
+    const input = document.getElementById('page-input');
+    const pageNumber = parseInt(input.value, 10);
+
+    // 驗證輸入是否合法
+    if (isNaN(pageNumber) || pageNumber < 1 || pageNumber > pages.length) {
+        alert(`請輸入有效的頁碼 (1-${pages.length})`);
+        return;
+    }
+
+    // 跳轉到指定頁面
+    currentPageIndex = pageNumber - 1; // 將頁碼轉換為索引
+    showPage(currentPageIndex);
+
+    // 清空輸入框
+    input.value = '';
+    }
+    */
+            document.addEventListener("DOMContentLoaded", function() {
+                const music = document.getElementById("background-music");
+
+                // 定義要播放音樂的頁面 ID 範圍
+                const musicPages = ["page999"];
+
+                // 判斷當前頁面是否在播放音樂的範圍內
+                function isMusicPageVisible() {
+                    return musicPages.some(pageId => {
+                        const page = document.getElementById(pageId);
+                        return page && page.style.display !== "none"; // 頁面顯示且不是隱藏的
+                    });
+                }
+
+                // 播放音樂的邏輯
+                function playMusic() {
+                    if (!music.paused) return; // 音樂已經播放，不做任何操作
+                    music.play();
+                    sessionStorage.setItem("musicPlaying", "true");
+                }
+
+                // 停止音樂的邏輯
+                function stopMusic() {
+                    music.pause();
+                    sessionStorage.removeItem("musicPlaying");
+                }
+
+                // 初始化音樂
+                if (isMusicPageVisible()) {
+                    if (!sessionStorage.getItem("musicPlaying")) {
+                        playMusic();
+                    }
+                }
+
+                // 偵測頁面顯示變化並控制音樂
+                const observer = new MutationObserver(() => {
+                    if (isMusicPageVisible()) {
+                        playMusic(); // 如果範圍內有頁面顯示，則播放音樂
+                    } else {
+                        stopMusic(); // 如果沒有頁面顯示，則停止音樂
+                    }
+                });
+
+                // 監視所有目標頁面
+                musicPages.forEach(pageId => {
+                    const page = document.getElementById(pageId);
+                    if (page) {
+                        observer.observe(page, {
+                            attributes: true,
+                            attributeFilter: ["style"]
+                        });
+                    }
+                });
+
+                // 鍵盤控制頁面顯示
+                const pages = document.querySelectorAll('.page');
+                let currentPageIndex = 0;
+
+                // 顯示當前頁面
+                function showPage(index) {
+                    pages.forEach((page, idx) => {
+                        page.style.display = (idx === index) ? 'block' : 'none';
+                    });
+                    updateButtonState();
+                }
+
+                // 更新按鈕狀態
+                function updateButtonState() {
+                    const prevButton = document.getElementById('prev-button');
+                    prevButton.disabled = currentPageIndex === 0;
+                    document.getElementById('next-button').disabled = currentPageIndex === pages.length - 1;
+                    prevButton.classList.toggle('disabled', currentPageIndex === 0);
+                    document.getElementById('next-button').classList.toggle('disabled', currentPageIndex === pages.length - 1);
+
+                    // 如果不在第一頁，將"上一頁"按鈕改為綠色
+                    if (currentPageIndex > 0) {
+                        prevButton.style.backgroundColor = '#5fdb77';
+                    } else {
+                        prevButton.style.backgroundColor = 'gray';
+                    }
+                }
+
+                // 下一頁按鈕
+                document.getElementById('next-button').addEventListener('click', () => {
+                    if (currentPageIndex < pages.length - 1) {
+                        currentPageIndex++;
+                        showPage(currentPageIndex);
+                    }
+                });
+
+                // 上一頁按鈕
+                document.getElementById('prev-button').addEventListener('click', () => {
+                    if (currentPageIndex > 0) {
+                        currentPageIndex--;
+                        showPage(currentPageIndex);
+                    }
+                });
+
+                // 偵測頁面切換並播放音樂
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'ArrowRight') {
+                        if (currentPageIndex < pages.length - 1) {
+                            currentPageIndex++;
+                            showPage(currentPageIndex);
+                        }
+                    } else if (event.key === 'ArrowLeft') {
+                        if (currentPageIndex > 0) {
+                            currentPageIndex--;
+                            showPage(currentPageIndex);
+                        }
+                    }
+                });
+
+                // 初始顯示第一頁
+                showPage(currentPageIndex);
+
+                // 清理狀態（離開範圍時）
+                window.addEventListener("beforeunload", () => {
+                    stopMusic();
+                });
+            });
+
+            // 鍵盤控制上下頁
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight') {
+                    // 右箭頭鍵，切換到下一頁
+                    if (currentPageIndex < pages.length - 1) {
+                        currentPageIndex++;
+                        showPage(currentPageIndex);
+                    }
+                } else if (event.key === 'ArrowLeft') {
+                    // 左箭頭鍵，切換到上一頁
+                    if (currentPageIndex > 0) {
+                        currentPageIndex--;
+                        showPage(currentPageIndex);
+                    }
+                }
+            });
+            const pages = document.querySelectorAll('.page');
+            let currentPageIndex = 0;
+
+            // 顯示當前頁面
+            function showPage(index) {
+                pages.forEach((page, idx) => {
+                    page.style.display = (idx === index) ? 'block' : 'none';
+                });
+                updateButtonState();
+            }
+
+            // 更新按鈕狀態
+            function updateButtonState() {
+                const prevButton = document.getElementById('prev-button');
+                prevButton.disabled = currentPageIndex === 0;
+                document.getElementById('next-button').disabled = currentPageIndex === pages.length - 1;
+                prevButton.classList.toggle('disabled', currentPageIndex === 0);
+                document.getElementById('next-button').classList.toggle('disabled', currentPageIndex === pages.length - 1);
+
+                // 如果不在第一頁，將"上一頁"按鈕改為綠色
+                if (currentPageIndex > 0) {
+                    prevButton.style.backgroundColor = '#5fdb77';
+                } else {
+                    prevButton.style.backgroundColor = 'gray';
+                }
+            }
+
+            // 下一頁按鈕
+            document.getElementById('next-button').addEventListener('click', () => {
+                if (currentPageIndex < pages.length - 1) {
+                    currentPageIndex++;
+                    showPage(currentPageIndex);
+                }
+            });
+
+            // 上一頁按鈕
+            document.getElementById('prev-button').addEventListener('click', () => {
+                if (currentPageIndex > 0) {
+                    currentPageIndex--;
+                    showPage(currentPageIndex);
+                }
+            });
+
+            // 初始顯示第一頁
+            showPage(currentPageIndex);
+        </script>
+
+</body>
+
+</html>
