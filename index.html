@@ -8,25 +8,23 @@
     <style>
         body {
             font-family: "標楷體", sans-serif;
-            /* 更改字體為標楷體 */
+            margin: 0;
+            padding: 0;
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover;
         }
 
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            z-index: 1;
-            /* 確保內容在背景上方 */
             position: relative;
-            /* 為了讓 z-index 生效 */
+            z-index: 1;
         }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 1;
-            position: relative;
+        h1 a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .nav {
@@ -65,7 +63,7 @@
         .iframe-container {
             position: relative;
             width: 100%;
-            aspect-ratio: 15/13;
+            aspect-ratio: 16/9;
             border: 5px solid rgba(206, 206, 206, 0.35);
         }
 
@@ -73,24 +71,6 @@
             width: 100%;
             height: 100%;
             border: none;
-        }
-
-        .iframe-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(0, 0, 0, 0.5);
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0);
-            pointer-events: none;
-            z-index: 1;
         }
 
         .hidden {
@@ -102,69 +82,104 @@
             display: flex;
             justify-content: center;
         }
+
+        /* 響應式設計 */
+        @media (max-width: 1024px) {
+            .nav {
+                position: static;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 10px;
+                gap: 10px;
+            }
+
+            .nav a {
+                width: auto;
+                flex: 1 1 auto;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .content {
+                width: 90%;
+            }
+
+            .iframe-container {
+                aspect-ratio: 16/9;
+                border-width: 3px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            .nav a {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+
+            .iframe-container {
+                aspect-ratio: 16/9;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="container">
+        <h1>
+            <a href="https://drive.google.com/drive/folders/1vnaC4F1UpfyJcQ1o8PqCZ9vfeXcgJau6?usp=sharing" target="_blank">戰場賦格曲：鋼之樂章</a>
+        </h1>
 
-    <body background="background.png" style="background-size:cover;">
-        <div class="container">
-            <h1>
-                <a href="https://drive.google.com/drive/folders/1vnaC4F1UpfyJcQ1o8PqCZ9vfeXcgJau6?usp=sharing" target="_blank" style="color: inherit;
-             text-decoration: none;">戰場賦格曲：鋼之樂章</a>
-            </h1>
-
-            <div class="content">
-                <div class="iframe-container">
-                    <iframe name="contentFrame"></iframe>
-                    <div class="iframe-overlay" id="iframeOverlay">請點擊左列按鈕閱讀故事<br>建議使用電腦閱讀</div>
-                </div>
-            </div>
-
-            <div class="nav">
-                <a href="chapter1.html" target="contentFrame" class="enabled" onclick="markAsRead(1)">第１樂章</a>
-                <a href="chapter2.html" target="contentFrame" class="hidden" onclick="markAsRead(2)">第２樂章</a>
-                <a href="chapter3.html" target="contentFrame" class="hidden" onclick="markAsRead(3)">第３樂章</a>
-                <a href="chapter4.html" target="contentFrame" class="hidden" onclick="markAsRead(4)">第４樂章</a>
-                <a href="chapter5.html" target="contentFrame" class="hidden" onclick="markAsRead(5)">第５樂章</a>
-                <a href="chapter6.html" target="contentFrame" class="hidden" onclick="markAsRead(6)">第６樂章</a>
-                <a href="chapter7.html" target="contentFrame" class="hidden" onclick="markAsRead(7)">第７樂章</a>
-                <a href="chapter8.html" target="contentFrame" class="hidden" onclick="markAsRead(8)">第８樂章</a>
-                <a href="chapter9.html" target="contentFrame" class="hidden" onclick="markAsRead(9)">第９樂章</a>
-                <a href="chapter10.html" target="contentFrame" class="hidden" onclick="markAsRead(10)">第１０樂章</a>
-                <a href="chapter11.html" target="contentFrame" class="hidden" onclick="markAsRead(11)">第１１樂章</a>
-                <a href="chapter12.html" target="contentFrame" class="hidden" onclick="markAsRead(12)">第１２樂章</a>
-                <div class="character-row">
-                    <a href="character.html" target="contentFrame" id="characterButton" class="hidden" onclick="unlockCharacter()">人物介紹</a>
-                </div>
+        <div class="content">
+            <div class="iframe-container">
+                <iframe name="contentFrame"></iframe>
             </div>
         </div>
 
-        <script>
-            function markAsRead(chapter) {
-                const overlay = document.getElementById('iframeOverlay');
-                overlay.style.display = 'none'; // 隱藏文字提示
+        <div class="nav">
+            <a href="chapter1.html" target="contentFrame" class="enabled" onclick="markAsRead(1)">第１樂章</a>
+            <a href="chapter2.html" target="contentFrame" class="hidden" onclick="markAsRead(2)">第２樂章</a>
+            <a href="chapter3.html" target="contentFrame" class="hidden" onclick="markAsRead(3)">第３樂章</a>
+            <a href="chapter4.html" target="contentFrame" class="hidden" onclick="markAsRead(4)">第４樂章</a>
+            <a href="chapter5.html" target="contentFrame" class="hidden" onclick="markAsRead(5)">第５樂章</a>
+            <a href="chapter6.html" target="contentFrame" class="hidden" onclick="markAsRead(6)">第６樂章</a>
+            <a href="chapter7.html" target="contentFrame" class="hidden" onclick="markAsRead(7)">第７樂章</a>
+            <a href="chapter8.html" target="contentFrame" class="hidden" onclick="markAsRead(8)">第８樂章</a>
+            <a href="chapter9.html" target="contentFrame" class="hidden" onclick="markAsRead(9)">第９樂章</a>
+            <a href="chapter10.html" target="contentFrame" class="hidden" onclick="markAsRead(10)">第１０樂章</a>
+            <a href="chapter11.html" target="contentFrame" class="hidden" onclick="markAsRead(11)">第１１樂章</a>
+            <a href="chapter12.html" target="contentFrame" class="hidden" onclick="markAsRead(12)">第１２樂章</a>
+            <div class="character-row">
+                <a href="character.html" target="contentFrame" id="characterButton" class="hidden" onclick="unlockCharacter()">人物介紹</a>
+            </div>
+        </div>
+    </div>
 
-                const chapterLink = document.querySelector(`.nav a:nth-child(${chapter})`);
-                chapterLink.classList.add('read');
+    <script>
+        function markAsRead(chapter) {
+            const chapterLink = document.querySelector(`.nav a:nth-child(${chapter})`);
+            chapterLink.classList.add('read');
 
-                // 解鎖下一章節
-                if (chapter < 12) {
-                    const nextChapterLink = document.querySelector(`.nav a:nth-child(${chapter + 1})`);
-                    nextChapterLink.classList.remove('hidden');
-                    nextChapterLink.classList.add('enabled');
-                } else {
-                    unlockCharacter();
-                }
+            // 解鎖下一章節
+            if (chapter < 12) {
+                const nextChapterLink = document.querySelector(`.nav a:nth-child(${chapter + 1})`);
+                nextChapterLink.classList.remove('hidden');
+                nextChapterLink.classList.add('enabled');
+            } else {
+                unlockCharacter();
             }
+        }
 
-            function unlockCharacter() {
-                const characterButton = document.getElementById('characterButton');
-                characterButton.classList.remove('hidden');
-                characterButton.classList.add('enabled');
-            }
-        </script>
-
-    </body>
+        function unlockCharacter() {
+            const characterButton = document.getElementById('characterButton');
+            characterButton.classList.remove('hidden');
+            characterButton.classList.add('enabled');
+        }
+    </script>
+</body>
 
 </html>
