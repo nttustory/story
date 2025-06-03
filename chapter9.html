@@ -1362,92 +1362,59 @@
         </div>
 
         <script>
-            /*
-    function goToPage() {
-    // 獲取輸入的頁碼
-    const input = document.getElementById('page-input');
-    const pageNumber = parseInt(input.value, 10);
-
-    // 驗證輸入是否合法
-    if (isNaN(pageNumber) || pageNumber < 1 || pageNumber > pages.length) {
-        alert(`請輸入有效的頁碼 (1-${pages.length})`);
-        return;
-    }
-
-    // 跳轉到指定頁面
-    currentPageIndex = pageNumber - 1; // 將頁碼轉換為索引
-    showPage(currentPageIndex);
-
-    // 清空輸入框
-    input.value = '';
-    }
-    */
             document.addEventListener("DOMContentLoaded", function() {
                 const music = document.getElementById("background-music");
                 const effectMusic01 = document.getElementById("sfx");
 
-                // 定義要播放音樂的頁面 ID 範圍
                 const musicPages = [
                     "page98", "page99", "page100", "page101", "page102",
                     "page103", "page103.2", "page103.35", "page103.4", "page103.45",
                     "page103.75", "page103.8", "page104", "page105", "page106"
                 ];
 
-                const effectPages = ["page70", "page103.5"]; // 這裡定義音效播放的頁面
+                const effectPages = ["page70", "page103.5"];
 
-                // 判斷當前頁面是否在播放背景音樂的範圍內
+                const pages = document.querySelectorAll('.page');
+                let currentPageIndex = 0;
+
+                function isPageVisible(pageId) {
+                    const page = document.getElementById(pageId);
+                    return page && page.style.display !== "none";
+                }
+
                 function isMusicPageVisible() {
-                    return musicPages.some(pageId => {
-                        const page = document.getElementById(pageId);
-                        return page && page.style.display !== "none"; // 頁面顯示且不是隱藏的
-                    });
+                    return musicPages.some(isPageVisible);
                 }
 
-                // 判斷當前頁面是否在播放音效的範圍內
                 function isEffectPageVisible() {
-                    return effectPages.some(pageId => {
-                        const page = document.getElementById(pageId);
-                        return page && page.style.display !== "none"; // 頁面顯示且不是隱藏的
-                    });
+                    return effectPages.some(isPageVisible);
                 }
 
-                // 播放背景音樂的邏輯
                 function playMusic() {
-                    if (!music.paused) return; // 音樂已經播放，不做任何操作
-                    music.play();
-                    sessionStorage.setItem("musicPlaying", "true");
+                    if (music.paused) {
+                        music.play();
+                   }
                 }
 
-                // 播放音效的邏輯
-                function playEffect() {
-                    if (!effectMusic01.paused) {
-                        effectMusic01.currentTime = 0;
-                        effectMusic01.play();
-                    }
-                }
-
-                // 停止背景音樂的邏輯
                 function stopMusic() {
                     music.pause();
-                    sessionStorage.removeItem("musicPlaying");
+                    music.currentTime = 0;
                 }
 
-                // 初始化音樂
-                if (isMusicPageVisible()) {
-                    if (!sessionStorage.getItem("musicPlaying")) {
-                        playMusic();
-                    }
+                function playEffect() {
+                    effectMusic01.pause();
+                    effectMusic01.currentTime = 0;
+                    effectMusic01.play();
                 }
 
-                // 偵測頁面顯示變化並控制音樂
+                // 監控頁面顯示狀態變化
                 const observer = new MutationObserver(() => {
                     if (isMusicPageVisible()) {
-                        playMusic(); // 如果範圍內有頁面顯示，則播放背景音樂
+                        playMusic();
                     } else {
-                        stopMusic(); // 如果沒有頁面顯示，則停止音樂
+                        stopMusic();
                     }
 
-                    // 播放音效
                     if (isEffectPageVisible()) {
                         playEffect();
                     }
@@ -1457,16 +1424,9 @@
                 [...musicPages, ...effectPages].forEach(pageId => {
                     const page = document.getElementById(pageId);
                     if (page) {
-                        observer.observe(page, {
-                            attributes: true,
-                            attributeFilter: ["style"]
-                        });
+                        observer.observe(page, { attributes: true, attributeFilter: ["style"] });
                     }
                 });
-
-                // 鍵盤控制頁面顯示
-                const pages = document.querySelectorAll('.page');
-                let currentPageIndex = 0;
 
                 // 顯示當前頁面
                 function showPage(index) {
@@ -1479,20 +1439,18 @@
                 // 更新按鈕狀態
                 function updateButtonState() {
                     const prevButton = document.getElementById('prev-button');
-                    prevButton.disabled = currentPageIndex === 0;
-                    document.getElementById('next-button').disabled = currentPageIndex === pages.length - 1;
-                    prevButton.classList.toggle('disabled', currentPageIndex === 0);
-                    document.getElementById('next-button').classList.toggle('disabled', currentPageIndex === pages.length - 1);
+                    const nextButton = document.getElementById('next-button');
 
-                    // 如果不在第一頁，將"上一頁"按鈕改為綠色
-                    if (currentPageIndex > 0) {
-                        prevButton.style.backgroundColor = '#5fdb77';
-                    } else {
-                        prevButton.style.backgroundColor = 'gray';
-                    }
+                    prevButton.disabled = currentPageIndex === 0;
+                    nextButton.disabled = currentPageIndex === pages.length - 1;
+
+                    prevButton.classList.toggle('disabled', currentPageIndex === 0);
+                    nextButton.classList.toggle('disabled', currentPageIndex === pages.length - 1);
+
+                    prevButton.style.backgroundColor = (currentPageIndex > 0) ? '#5fdb77' : 'gray';
                 }
 
-                // 下一頁按鈕
+                // 按鈕事件
                 document.getElementById('next-button').addEventListener('click', () => {
                     if (currentPageIndex < pages.length - 1) {
                         currentPageIndex++;
@@ -1500,7 +1458,6 @@
                     }
                 });
 
-                // 上一頁按鈕
                 document.getElementById('prev-button').addEventListener('click', () => {
                     if (currentPageIndex > 0) {
                         currentPageIndex--;
@@ -1508,9 +1465,9 @@
                     }
                 });
 
-                // 偵測頁面切換並播放音樂
+                // 鍵盤左右鍵切換
                 document.addEventListener('keydown', (event) => {
-                    if (event.key === 'ArrowRight') {
+                        if (event.key === 'ArrowRight') {
                         if (currentPageIndex < pages.length - 1) {
                             currentPageIndex++;
                             showPage(currentPageIndex);
@@ -1526,73 +1483,11 @@
                 // 初始顯示第一頁
                 showPage(currentPageIndex);
 
-                // 清理狀態（離開範圍時）
+                // 離開頁面時停止背景音樂
                 window.addEventListener("beforeunload", () => {
                     stopMusic();
                 });
             });
-
-            // 鍵盤控制上下頁
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'ArrowRight') {
-                    // 右箭頭鍵，切換到下一頁
-                    if (currentPageIndex < pages.length - 1) {
-                        currentPageIndex++;
-                        showPage(currentPageIndex);
-                    }
-                } else if (event.key === 'ArrowLeft') {
-                    // 左箭頭鍵，切換到上一頁
-                    if (currentPageIndex > 0) {
-                        currentPageIndex--;
-                        showPage(currentPageIndex);
-                    }
-                }
-            });
-            const pages = document.querySelectorAll('.page');
-            let currentPageIndex = 0;
-
-            // 顯示當前頁面
-            function showPage(index) {
-                pages.forEach((page, idx) => {
-                    page.style.display = (idx === index) ? 'block' : 'none';
-                });
-                updateButtonState();
-            }
-
-            // 更新按鈕狀態
-            function updateButtonState() {
-                const prevButton = document.getElementById('prev-button');
-                prevButton.disabled = currentPageIndex === 0;
-                document.getElementById('next-button').disabled = currentPageIndex === pages.length - 1;
-                prevButton.classList.toggle('disabled', currentPageIndex === 0);
-                document.getElementById('next-button').classList.toggle('disabled', currentPageIndex === pages.length - 1);
-
-                // 如果不在第一頁，將"上一頁"按鈕改為綠色
-                if (currentPageIndex > 0) {
-                    prevButton.style.backgroundColor = '#5fdb77';
-                } else {
-                    prevButton.style.backgroundColor = 'gray';
-                }
-            }
-
-            // 下一頁按鈕
-            document.getElementById('next-button').addEventListener('click', () => {
-                if (currentPageIndex < pages.length - 1) {
-                    currentPageIndex++;
-                    showPage(currentPageIndex);
-                }
-            });
-
-            // 上一頁按鈕
-            document.getElementById('prev-button').addEventListener('click', () => {
-                if (currentPageIndex > 0) {
-                    currentPageIndex--;
-                    showPage(currentPageIndex);
-                }
-            });
-
-            // 初始顯示第一頁
-            showPage(currentPageIndex);
         </script>
 
 </body>
