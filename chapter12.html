@@ -1,0 +1,2620 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第１２樂章　異教之神的宗教會議</title>
+    <style>
+        body {
+            font-family: "標楷體", sans-serif;
+            /* 更改字體為標楷體 */
+        }
+
+        body {
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        .chapter-title {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+
+        .image-block {
+            margin: 20px 0;
+        }
+
+        .text-block {
+            margin: 20px;
+            border: 2px solid #fff;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
+        }
+
+        .next-button {
+            font-family: "標楷體", DFKai-SB, "KaiTi", serif;
+            /* 設定為標楷體，含備選字體 */
+            border-radius: 10px;
+            /* 圓角邊框，10px 可根據需求調整 */
+            padding: 10px 20px;
+            /* 調整按鈕的內邊距 */
+            font-size: 16px;
+            /* 設定按鈕文字大小 */
+            border: 2px solid #ccc;
+            /* 邊框顏色及粗細 */
+            cursor: pointer;
+            /* 設定游標為手型 */
+            background-color: #5fdb77;
+            /* 按鈕背景色 */
+            color: #333;
+            /* 文字顏色 */
+            transition: all 0.3s ease;
+            /* 增加滑順過渡效果 */
+        }
+
+        .prev-button {
+            font-family: "標楷體", DFKai-SB, "KaiTi", serif;
+            /* 設定為標楷體，含備選字體 */
+            border-radius: 10px;
+            /* 圓角邊框，10px 可根據需求調整 */
+            padding: 10px 20px;
+            /* 調整按鈕的內邊距 */
+            font-size: 16px;
+            /* 設定按鈕文字大小 */
+            border: 2px solid #ccc;
+            /* 邊框顏色及粗細 */
+            cursor: pointer;
+            /* 設定游標為手型 */
+            background-color: #5fdb77;
+            /* 按鈕背景色 */
+            color: #333;
+            /* 文字顏色 */
+            transition: all 0.3s ease;
+            /* 增加滑順過渡效果 */
+        }
+
+        /*
+        .jump-button {
+            font-family: "標楷體", sans-serif;
+            background-color: #1e1e60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            &:hover {
+                background-color: #3e3e8e; 
+            }
+        }
+        */
+        .disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+
+        .fixed-container {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        #chapter-title {
+            color: #292e2c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="chapter-title">第１２樂章　異教之神的宗教會議</h1>
+
+    <!-- 
+    跳轉到指定頁面的輸入框和按鈕 
+    <div style="margin: 20px;">
+        <label for="page-input">請輸入頁碼到達指定頁面：</label>
+        <input type="number" id="page-input" style="width: 50px;">
+        <button class="jump-button" onclick="goToPage()">跳轉</button>
+    </div>
+    -->
+
+    <audio id="background-music" loop>
+        <source src="音樂/爆炸音效.mp3" type="audio/mpeg">
+        您的瀏覽器不支援音樂撥放。
+    </audio>
+
+    <div id="text-blocks" class="text-block">
+        <!-- 每一段文字作為單獨的元素 -->
+        <div class="page" id="page1" style="display:none;">
+            <div class="column">
+                <img src="插圖/51.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="5">首都帕雷希亞正面</font>
+            </p>
+        </div>
+        <div class="page visible" id="page1.5">
+            <div class="column">
+                <img src="插圖/51.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            哈庫斯在前往卡斯科首都帕雷希亞進擊的途中，<br>
+            藉著試乘塔拉斯庫斯為目的，將卡斯科蹂躪了一番。
+        </div>
+        <div class="page" id="page2" style="display:none;">
+            <div class="column">
+                <img src="插圖/51.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            塔拉斯庫斯所到之處火焰竄起，瓦礫堆疊成一座座小山。
+        </div>
+        <div class="page" id="page3" style="display:none;">
+            <div class="column">
+                <img src="插圖/145.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">梅爾隆上將</font>
+            </p>
+            憑藉這裡的戰力，完全無法阻止那傢伙嗎……
+        </div>
+        <div class="page" id="page4" style="display:none;">
+            <div class="column">
+                <img src="插圖/145.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">梅爾隆上將</font>
+            </p>
+            逼不得已了！對全體帕雷希亞市民提出撤出命令！
+        </div>
+        <div class="page" id="page5" style="display:none;">
+            <div class="column">
+                <img src="插圖/145.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">卡斯科軍士兵</font>
+            </p>
+            了解！
+        </div>
+        <div class="page" id="page6" style="display:none;">
+            <div class="column">
+                <img src="插圖/145.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            無論卡斯科軍佈下多麼堅固的防禦陣容也無法與之抗衡，<br>
+            首都帕雷希亞淪落也只是時間問題了。
+        </div>
+        <div class="page" id="page6.2" style="display:none;">
+            <div class="column">
+                <img src="插圖/146.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="5">首都帕雷希亞正面　塔拉斯庫斯內部</font>
+            </p>
+        </div>
+        <div class="page" id="page6.4" style="display:none;">
+            <div class="column">
+                <img src="插圖/146.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            試乘差不多就這樣吧……
+        </div>
+        <div class="page" id="page6.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/146.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            光憑塔拉斯庫斯戰力就很充足了，<br>
+            但目標是沉睡在帕雷希亞地底下的失落之神－－芬里爾！！
+        </div>
+        <div class="page" id="page7" style="display:none;">
+            <div class="column">
+                <img src="插圖/146.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            在被塔拉尼斯插手干涉之前，將吾等的神奪回……<br>
+            為了讓傳說重新復活過來……呵呵呵……
+        </div>
+        <div class="page" id="page8" style="display:none;">
+            <div class="column">
+                <img src="插圖/146.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            哈庫斯為了在芬里爾內部設置核心，<br>
+            提高了塔拉斯庫斯的速度，朝向帕雷希亞中央出發。
+        </div>
+        <div class="page" id="page1" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="5">首都帕雷希亞　郊外</font>
+            </p>
+        </div>
+        <div class="page" id="page9" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            得快點阻止哈庫斯……帕雷希亞，不對，是卡斯科有危險了！
+        </div>
+        <div class="page" id="page10" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">小梅</font>
+            </p>
+            我們衝吧！
+        </div>
+        <div class="page" id="page11" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            出發囉～！
+        </div>
+        <div class="page" id="page12" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            『呵呵……』
+        </div>
+        <div class="page" id="page12.5" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page13" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="5">芬里爾內部</font>
+            </p>
+        </div>
+        <div class="page" id="page14" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            呵呵呵……和那個『聲音』所說的一模一樣。
+        </div>
+        <div class="page" id="page14.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            正如傳說所述，失落之神芬里爾<br>
+            果真沉眠於帕雷希亞的地底下。
+        </div>
+        <div class="page" id="page15" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            地底內部的最深處……<br>
+            我終於抵達這處相當於心臟的神聖境地。
+        </div>
+        <div class="page" id="page16" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            呵呵呵……
+        </div>
+        <div class="page" id="page17" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            啊哈哈哈哈哈～～！！
+        </div>
+        <div class="page" id="page17.2" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            來吧，時候到了！
+        </div>
+        <div class="page" id="page17.3" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            我自小不斷祈求降臨的失落之神傳說，<br>
+            如今！終於成真了！
+        </div>
+        <div class="page" id="page17.4" style="display:none;">
+            <div class="column">
+                <img src="插圖/148.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            甦醒吧，失落之神芬里爾！
+        </div>
+        <div class="page" id="page17.41" style="display:none;">
+            <div class="column">
+                <img src="插圖/149.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            和我合而為一，再次奮起吧！！
+        </div>
+        <div class="page" id="page17.42" style="display:none;">
+            <div class="column">
+                <img src="插圖/52.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page17.43" style="display:none;">
+            <div class="column">
+                <img src="插圖/53.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page17.44" style="display:none;">
+            <div class="column">
+                <img src="插圖/54.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page17.45" style="display:none;">
+            <div class="column">
+                <img src="插圖/55.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page17.46" style="display:none;">
+            <div class="column">
+                <img src="插圖/56.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page17.5" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page18" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            從帕雷希亞響徹而來的劇烈搖晃及轟炸聲，<br>
+            也傳入位於塔拉尼斯內部的孩子們這裡。
+        </div>
+        <div class="page" id="page19" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">小梅</font>
+            </p>
+            在那裡有什麼，發出了很大的聲音……？
+        </div>
+        <div class="page" id="page20" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">琪克</font>
+            </p>
+            而且很晃啊！！<br>
+            唔、我們會怎樣嗎？
+        </div>
+        <div class="page" id="page21" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            我們的卡斯科會消失嗎！？
+        </div>
+        <div class="page" id="page22" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            才、才不會有那種事……絕對不會的！
+        </div>
+        <div class="page" id="page23" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            這也是因為我們，到了那戰車－－塔拉斯庫斯的所在地而造成的嗎？
+        </div>
+        <div class="page" id="page24" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            被這收音機的聲音……不對，是被塔拉尼斯給騙了！
+        </div>
+        <div class="page" id="page25" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            面料絕望的孩子們的視線，<br>
+            在帕雷希亞及收音機之間游移。
+        </div>
+        <div class="page" id="page25.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            從收音機裡，自稱為貞德的塔拉尼斯人工智慧，<br>
+            高亢的發出了極似叫喊的歡呼聲。
+        </div>
+        <div class="page" id="page26" style="display:none;">
+            <div class="column">
+                <img src="插圖/138.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            哈哈哈哈哈！！到了……終於！
+        </div>
+        <div class="page" id="page27" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            『為了讓芬里爾甦醒過來，<br>
+            而讓貝爾曼帝國襲擊了卡斯科……？』
+        </div>
+        <div class="page" id="page28.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            跨越過遙遠的時代，甦醒吧，芬里爾！！
+        </div>
+        <div class="page" id="page28" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            『不斷賭上性命戰鬥到現在是為了什麼……？』
+        </div>
+        <div class="page" id="page29" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            芬里爾……為了殺了你這傢伙，我……嗚……我……哦……
+        </div>
+        <div class="page" id="page30" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            怎麼回事？收音機的聲音中斷了……
+        </div>
+        <div class="page" id="page31" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            嗯……可是現在不去帕雷希亞的話，
+            卡斯科的大家會有危險吧？
+        </div>
+        <div class="page" id="page31.5" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page32" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            『…………？』
+        </div>
+        <div class="page" id="page33" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            『…………！？』
+        </div>
+        <div class="page" id="page34" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            歡迎回來……
+        </div>
+        <div class="page" id="page35" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            『…………！！』
+        </div>
+        <div class="page" id="page36" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            我……是妳的碎片……塔拉尼斯人工智能的一部分……
+        </div>
+        <div class="page" id="page37" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            『……？』
+        </div>
+        <div class="page" id="page38" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            我們必須要，合為一體……
+        </div>
+        <div class="page" id="page39" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            為了保護大家……
+        </div>
+        <div class="page" id="page40" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            『！！』
+        </div>
+        <div class="page" id="page41" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            很快地，妳就會消失了……
+        </div>
+        <div class="page" id="page42" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            打到芬里爾後，妳……
+        </div>
+        <div class="page" id="page43" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            嗯……我們希望藉此讓自己的力量得到認同。<br>
+            但是當時那些人，已不存在這個世界上了……
+        </div>
+        <div class="page" id="page44" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            『…………』
+        </div>
+        <div class="page" id="page45" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            妳，看起來好可憐……
+        </div>
+        <div class="page" id="page46" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            我已經，不會再讓任何人受傷了……
+        </div>
+        <div class="page" id="page47" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">發光的少女</font>
+            </p>
+            要將大家……還有，妳也是……
+        </div>
+        <div class="page" id="page48" style="display:none;">
+            <div class="column">
+                <img src="插圖/93.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">收音機</font>
+            </p>
+            『！！！！』
+        </div>
+        <div class="page" id="page49" style="display:none;">
+            <div class="column">
+                <img src="插圖/000.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page50" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            突然，收音機的聲音連同雜訊一併的斷絕了。
+        </div>
+        <div class="page" id="page51" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            如同交替一般，發光的少女浮現出來。
+        </div>
+        <div class="page" id="page52" style="display:none;">
+            <div class="column">
+                <img src="插圖/57.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="4">嗚……我……我是……</font>
+            </p>
+        </div>
+        <div class="page" id="page53" style="display:none;">
+            <div class="column">
+                <img src="插圖/57.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            發光少女的姿態與氛圍，帶著點成熟韻味。
+        </div>
+        <div class="page" id="page53.2" style="display:none;">
+            <div class="column">
+                <img src="插圖/57.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            ……我是……貞德……<br>
+            是殘存在這塔拉尼斯中的，人工智慧……
+        </div>
+        <div class="page" id="page53.3" style="display:none;">
+            <div class="column">
+                <img src="插圖/57.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            她也和收音機一樣，報上了貞德的名諱，<br>
+            讓孩子們十分困惑。
+        </div>
+        <div class="page" id="page53.4" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            貞德……！？
+        </div>
+        <div class="page" id="page53.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/138.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">琪克</font>
+            </p>
+            咦……妳本來就長這樣嗎？
+        </div>
+        <div class="page" id="page54" style="display:none;">
+            <div class="column">
+                <img src="插圖/138.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">小梅</font>
+            </p>
+            妳是幽靈……嗎？
+        </div>
+        <div class="page" id="page55" style="display:none;">
+            <div class="column">
+                <img src="插圖/138.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            我是為了控制這輛塔拉尼斯而製作出的虛擬人格……
+        </div>
+        <div class="page" id="page56" style="display:none;">
+            <div class="column">
+                <img src="插圖/138.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            製作出我的，是至今數千年以前消失的舊人類……
+        </div>
+        <div class="page" id="page57" style="display:none;">
+            <div class="column">
+                <img src="插圖/58.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            曾經的舊人類所犯下的終末戰爭中，大量的最終兵器被投入……
+        </div>
+        <div class="page" id="page58" style="display:none;">
+            <div class="column">
+                <img src="插圖/58.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            在那些兵器之中，又屬那個芬里爾是最強力的一件……
+        </div>
+        <div class="page" id="page59" style="display:none;">
+            <div class="column">
+                <img src="插圖/59.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            這個塔拉尼斯，是為了對抗芬里爾而製作出來的兵器，<br>
+            曾經戰勝過芬里爾一次……
+        </div>
+        <div class="page" id="page60" style="display:none;">
+            <div class="column">
+                <img src="插圖/59.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            靠著消耗人類的生命能量從而釋放的，禁忌的兵器……<br>
+            『靈魂加農炮』……
+        </div>
+        <div class="page" id="page61" style="display:none;">
+            <div class="column">
+                <img src="插圖/60.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            塔拉尼斯也因犯下了那份禁忌而遭到封印……
+        </div>
+        <div class="page" id="page67" style="display:none;">
+            <div class="column">
+                <img src="插圖/60.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            在此之後，因為塔拉尼斯被封印時發生的意外，<br>
+            身為人工智慧的我思緒迴路被分裂成了兩份……
+        </div>
+        <div class="page" id="page68" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            其一是為保護塔拉尼斯乘員的性命做出提議，<br>
+            備有以人類姿態進行溝通交流機能的貞德……
+        </div>
+        <div class="page" id="page69" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            另一是為了再次打倒芬里爾，從而證明自己身為兵器<br>
+            是多麼優秀且正當，善於操弄戰略及話術的貞德……
+        </div>
+        <div class="page" id="page70" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            兩者都同樣是我，但各自有著不同的目的及人格，<br>
+            導致最後讓你們陷入混亂，還因此傷害了你們……
+        </div>
+        <div class="page" id="page71" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            現在的我，因芬里爾之核啟動而產生的衝擊，<br>
+            原本分裂的兩份的個人格得以再次合而為一。
+        </div>
+        <div class="page" id="page72" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            新世界的孩子們呀，你們的世界和性命由我來守護。
+        </div>
+        <div class="page" id="page73" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            為了能將那芬里爾鎮壓住，再一次將力量借給我吧……
+        </div>
+        <div class="page" id="page74" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">瓦帕</font>
+            </p>
+            已經不會再被妳騙了～！<br>
+            ……雖然很想這麼說啦～
+        </div>
+        <div class="page" id="page75" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            原來是叫貞德嗎……<br>
+            妳的狀況和從前的故事其實怎樣都無所謂啦……
+        </div>
+        <div class="page" id="page76" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            也不用說什麼借不借的，<br>
+            現在已經是關係到我們能不能平安活下去的問題了。
+        </div>
+        <div class="page" id="page77" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            嗯……太難的事情我也不懂……<br>
+            總而言之我們不得不戰鬥對吧？
+        </div>
+        <div class="page" id="page78" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            是啊……不這麼做的話卡斯科人們的未來，<br>
+            就會在這裡消失……
+        </div>
+        <div class="page" id="page79" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            雖然要讓孩子們完全理解貞德那冗長的說明實為困難，<br>
+            但他們已經明白該做什麼事了。
+        </div>
+        <div class="page" id="page80.1" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            『打倒芬里爾，奪回和平……』
+        </div>
+        <div class="page" id="page80.15" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            做好覺悟的孩子們，駕駛塔拉尼斯<br>
+            朝將是決戰之地的帕雷西亞前進。
+        </div>
+        <div class="page" id="page80.2" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            真是的，沒辦法呢……<br>
+            這次的戰鬥就是最後了喔！
+        </div>
+        <div class="page" id="page80.25" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            就是被你們救回來的命，此恩必定償還，<br>
+            而且我還有自己該了結的事。
+        </div>
+        <div class="page" id="page80.3" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">希娜</font>
+            </p>
+            雖然很可怕……大家一起上吧！
+        </div>
+        <div class="page" id="page80.35" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            嗯，打倒芬里爾取回和平……<br>
+            就是這樣而已！
+        </div>
+        <div class="page" id="page80.4" style="display:none;">
+            <div class="column">
+                <img src="插圖/147.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">小梅</font>
+            </p>
+            要走囉～～！！
+        </div>
+        <div class="page" id="page80.45" style="display:none;">
+            <div class="column">
+                <img src="插圖/150.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page80.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/61.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            塔拉尼斯抵達了首都帕雷希亞附近，
+            那裡的景色改變了很多。
+        </div>
+        <div class="page" id="page80.55" style="display:none;">
+            <div class="column">
+                <img src="插圖/61.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            沉睡在地下的芬里爾站起身，
+            大地因此大幅隆起，在那成了一座巨大的山。
+        </div>
+        <div class="page" id="page80.56" style="display:none;">
+            <div class="column">
+                <img src="插圖/61.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            山的地面處處崩落，能清楚看到芬里爾的體表
+            和類似腳的部分。
+        </div>
+        <div class="page" id="page80.57" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            我、我們有辦法跟那種怪物戰鬥嗎……？
+        </div>
+        <div class="page" id="page80.6" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            嗚哇！好、好巨大～～！！
+        </div>
+        <div class="page" id="page80.65" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">瓦帕</font>
+            </p>
+            誇、誇張成那樣也只能笑了吧～啊哈哈！
+        </div>
+        <div class="page" id="page80.7" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            咦？
+        </div>
+        <div class="page" id="page80.75" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            在芬里爾完全站起之前，從那個前腳上去，登上帕雷希亞吧。
+        </div>
+        <div class="page" id="page80.8" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            不知怎麼的，開始有點興奮起來了！
+        </div>
+        <div class="page" id="page80.9" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            一、一定能成功的！
+        </div>
+        <div class="page" id="page81" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            趁現在！！
+        </div>
+        <div class="page" id="page82" style="display:none;">
+            <div class="column">
+                <img src="插圖/62.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">孩子們</font>
+            </p>
+            上呀～～！！
+        </div>
+        <div class="page" id="page82.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/64.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page83" style="display:none;">
+            <div class="column">
+                <img src="插圖/64.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page83.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/66.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page83.6" style="display:none;">
+            <div class="column">
+                <img src="插圖/67.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page83.7" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page83.9" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="center">
+                <font size="5">被摧毀的首都　帕雷希亞</font>
+            </p>
+        </div>
+        <div class="page" id="page84" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            在空中飛的時候我都縮成一團了……
+        </div>
+        <div class="page" id="page85" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            剛才那一下應該沒有弄壞塔拉尼斯吧……？
+        </div>
+        <div class="page" id="page86" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">瓦帕</font>
+            </p>
+            還會想要在飛一次耶～！
+        </div>
+        <div class="page" id="page87" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            在塔拉尼斯前行途中，<br>
+            貞德向孩子們說明了接下來的作戰內容。
+        </div>
+        <div class="page" id="page88" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            芬里爾已經覺醒，<br>
+            代表著塔拉斯庫斯已經抵達芬里爾內部了。
+        </div>
+        <div class="page" id="page89" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            因為存在於塔拉斯庫斯的核心，便是芬里爾的心臟，<br>
+            而駕駛著塔拉斯庫斯的人便是芬里爾的大腦。
+        </div>
+        <div class="page" id="page90" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            也就是說想要鎮壓住芬里爾，必須潛入芬里爾內部，<br>
+            將塔拉斯庫斯破壞掉才行。
+        </div>
+        <div class="page" id="page91" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            我判斷塔拉斯庫斯應該是從<br>
+            帕雷西亞內某處的入口潛入芬里爾內部。
+        </div>
+        <div class="page" id="page92" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            我們先尋找那個入口吧。
+        </div>
+        <div class="page" id="page93" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            嗯，大概知道了～！
+        </div>
+        <div class="page" id="page94" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            我們要趕快喲！
+        </div>
+        <div class="page" id="page94.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/151.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">希娜</font>
+            </p>
+            如果這樣能了結戰爭的話……
+        </div>
+        <div class="page" id="page94.55" style="display:none;">
+            <div class="column">
+                <img src="插圖/152.png" width="80%" />
+            </div>
+        </div>
+        <div class="page" id="page94.6" style="display:none;">
+            <div class="column">
+                <img src="插圖/65.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            芬里爾將他的四肢矗立於地面，<br>
+            緩緩抬起巨大如鐮刀般的頭部。
+        </div>
+        <div class="page" id="page94.7" style="display:none;">
+            <div class="column">
+                <img src="插圖/65.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            接著像是環顧卡斯科全體似的搖搖頭，<br>
+            大大地張開下顎，用灼熱的光線將大地剷平
+        </div>
+        <div class="page" id="page95" style="display:none;">
+            <div class="column">
+                <img src="插圖/65.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            大地發出悲鳴，熔岩如同血液汩汩流出，<br>
+            火柱形成的簾幕聳立四周。
+        </div>
+        <div class="page" id="page95.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/65.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            大地承受了未曾有過的衝擊，頃刻間分崩離析。
+        </div>
+        <div class="page" id="page96" style="display:none;">
+            <div class="column">
+                <img src="插圖/65.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            從破碎大地的裂痕中，能略見因電漿放電而閃耀的雲海。
+        </div>
+        <div class="page" id="page96.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/65.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            那是能將卡斯科的浮游大陸擊碎的衝擊……
+        </div>
+        <div class="page" id="page96.9" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page97" style="display:none;">
+            <div class="column">
+                <img src="插圖/153.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            塔拉尼斯為了不被搖落下來，將履帶緊緊的嵌著地表，<br>
+            在芬里爾背上的帕雷希亞奔馳著。
+        </div>
+        <div class="page" id="page98" style="display:none;">
+            <div class="column">
+                <img src="插圖/153.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            從後方集結，察覺了塔拉尼斯動靜的卡斯科軍成為了誘餌，<br>
+            將芬里爾的動作控制在最小限度內。
+        </div>
+        <div class="page" id="page99" style="display:none;">
+            <div class="column">
+                <img src="插圖/153.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">梅爾隆上將</font>
+            </p>
+            在炮身燒光之前瘋狂射擊～！！<br>
+            只讓孩子們被強逼著戰鬥，是大人的恥辱～！！
+        </div>
+        <div class="page" id="page100" style="display:none;">
+            <div class="column">
+                <img src="插圖/153.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">卡斯科軍士兵</font>
+            </p>
+            遵命！！
+        </div>
+        <div class="page" id="page96.9" style="display:none;">
+            <video src="112.mp4" autoplay muted loop="true" width="100%">
+            </video>
+        </div>
+        <div class="page" id="page101">
+            <div class="column">
+                <img src="插圖/154.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">塔拉尼斯</font>
+            </p>
+            糟糕了、糟糕了！！讓芬里爾繼續這樣亂搞下去，<br>
+            卡斯科會整個破壞殆盡的～！！
+        </div>
+        <div class="page" id="page101.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/154.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            似乎因為卡斯克軍隊的攻擊，<br>
+            芬里爾的動作稍微變得遲緩了。
+        </div>
+        <div class="page" id="page102" style="display:none;">
+            <div class="column">
+                <img src="插圖/154.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            多虧塔拉尼斯，才能勉強在這種搖晃中前進！
+        </div>
+        <div class="page" id="page103" style="display:none;">
+            <div class="column">
+                <img src="插圖/154.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            可惡！不快點到芬里爾裡面的話，<br>
+            會掉下去的～！！
+        </div>
+        <div class="page" id="page103.2" style="display:none;">
+            <div class="column">
+                <img src="插圖/154.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            要、要相信塔拉尼斯！！
+        </div>
+        <div class="page" id="page103.35" style="display:none;">
+            <div class="column">
+                <img src="插圖/154.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">塔拉尼斯</font>
+            </p>
+            請注意！<br>
+            這周遭的地底下有一片空間。
+        </div>
+        <div class="page" id="page103.4" style="display:none;">
+            <div class="column">
+                <img src="插圖/154.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">塔拉尼斯</font>
+            </p>
+            地面非常不穩……
+        </div>
+        <div class="page" id="page103.45" style="display:none;">
+            <div class="column">
+                <img src="插圖/67.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            是塌陷！無法緊急撤退！塔拉尼斯即將墜落！
+        </div>
+        <div class="page" id="page103.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/67.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            請乘員保持耐衝擊姿勢，請小心墜落時的衝擊！
+        </div>
+        <div class="page" id="page103.75" style="display:none;">
+            <div class="column">
+                <img src="插圖/67.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            快、快找東西抓住！
+        </div>
+        <div class="page" id="page103.8" style="display:none;">
+            <div class="column">
+                <img src="插圖/67.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            可惡啊！
+        </div>
+        <div class="page" id="page103.85" style="display:none;">
+            <div class="column">
+                <img src="插圖/67.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            出、出乎意料！
+        </div>
+        <div class="page" id="page104" style="display:none;">
+            <div class="column">
+                <img src="插圖/67.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">孩子們</font>
+            </p>
+            哇啊啊啊啊啊～～～～！！！！
+        </div>
+        <div class="page" id="page105" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            系統檢查………………<br>
+            墜落僅造成輕微損傷。
+        </div>
+        <div class="page" id="page106" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            成功透過彈性防震器減緩機體受到的損傷。<br>
+            各位都沒事嗎？
+        </div>
+        <div class="page" id="page107" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            痛啊……不過倒沒受傷。
+        </div>
+        <div class="page" id="page108" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">瓦帕</font>
+            </p>
+            啊哈哈……好像有點好玩～
+        </div>
+        <div class="page" id="page109" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            這不算什麼。
+        </div>
+        <div class="page" id="page110" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            了解。<br>
+            看來我們成功潛入芬里爾內部了。
+        </div>
+        <div class="page" id="page111.1" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">琪克</font>
+            </p>
+            嗚咦咦～，總覺得這地方好噁心……
+        </div>
+        <div class="page" id="page111.15" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            放心，有我在旁邊！
+        </div>
+        <div class="page" id="page111.2" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            耶嘿嘿，就靠你了喔～哈克～
+        </div>
+        <div class="page" id="page111.25" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            塔拉尼斯的功能沒有問題。<br>
+            我們繼續前進吧。
+        </div>
+        <div class="page" id="page111.3" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            孩子們相當謹慎地，<br>
+            讓成功潛入芬里爾內部的塔拉尼斯朝著深處前行。
+        </div>
+        <div class="page" id="page111.35" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            接下來只要朝著核心反應強烈的地方前進，<br>
+            塔拉斯庫斯應該就在那裡了……小心行事。
+        </div>
+        <div class="page" id="page111.4" style="display:none;">
+            <div class="column">
+                <img src="插圖/113.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            塔拉尼斯抵達了芬里爾內部敞開著的空間。
+        </div>
+        <div class="page" id="page111.45" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            在空間深處，塔拉斯庫斯與芬里爾內部像是融合般的成為了一體。
+        </div>
+        <div class="page" id="page111.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">琪克</font>
+            </p>
+            那是……塔拉斯庫斯嗎！？
+        </div>
+        <div class="page" id="page111.55" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">希娜</font>
+            </p>
+            這是什麼驚悚的樣子……
+        </div>
+        <div class="page" id="page111.56" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            像是和芬里爾融合在一塊……！
+        </div>
+        <div class="page" id="page111.57" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            在那上面的人影是……？
+        </div>
+        <div class="page" id="page111.65" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            呀啊啊啊！怎麼……那個人……！？
+        </div>
+        <div class="page" id="page111.7" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            應該是哈庫斯那傢伙吧……<br>
+            可是怎麼變成這樣……
+        </div>
+        <div class="page" id="page111.75" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            這是什麼威力啊……<br>
+            雖然正是因為這輛戰車，我們才勉強活下來的……
+        </div>
+        <div class="page" id="page111.8" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            我……大家都知道我是貝爾曼軍的少年兵吧……
+        </div>
+        <div class="page" id="page111.9" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            對於我們貝爾曼士兵來說……
+        </div>
+        <div class="page" id="page112" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            施梵因．哈庫斯，<br>
+            充滿領導氣質的他，是我們新一代領袖。
+        </div>
+        <div class="page" id="page113" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            社會衝突頻繁……在這老人領導的社會之中……<br>
+            人民在長期的壓迫下，對改變現狀充滿了無奈和絕望。
+        </div>
+        <div class="page" id="page114" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            恐怕他就是這場殘酷戰爭的罪魁禍首……
+        </div>
+        <div class="page" id="page115" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            我們要做的……就是將那個擊倒……這樣而已！
+        </div>
+        <div class="page" id="page116" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            鋼鐵惡魔啊……膽敢以骯髒的腳踏入神的懷裡，<br>
+            真是無禮的傢伙……搞清楚自己的地位啊……！
+        </div>
+        <div class="page" id="page117" style="display:none;">
+            <div class="column">
+                <img src="插圖/44.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            我現在，與傳說中的失落之神合為一體了……
+        </div>
+        <div class="page" id="page118" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            在傳說中，神與惡魔是兩敗俱傷……<br>
+            但這次不會再重蹈覆轍……
+        </div>
+        <div class="page" id="page119" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            我將成為新的傳說……！！
+        </div>
+        <div class="page" id="page120" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            哈庫斯的聲音，在芬里爾內部迴盪著。
+        </div>
+        <div class="page" id="page121" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            好了，是時候做個了結了……！
+        </div>
+        <div class="page" id="page122" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">琪克</font>
+            </p>
+            你就是破壞了我們村莊的壞人！
+        </div>
+        <div class="page" id="page123" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            將貝爾曼誘導至錯誤方向的罪是不能原諒的！
+        </div>
+        <div class="page" id="page124" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            他也是被我的話影響，進而幻想自己<br>
+            是能成為神的可悲男人……請救救他吧……拜託了……
+        </div>
+        <div class="page" id="page125" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            各位，要上了！<br>
+            讓我們來阻止他吧！！
+        </div>
+        <div class="page" id="page126" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            趕緊回到各自的位置上！！
+        </div>
+        <div class="page" id="page126.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            這就是最後一戰了！！
+        </div>
+        <div class="page" id="page127" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">琪克和哈克</font>
+            </p>
+            攻擊－－！！
+        </div>
+        <div class="page" id="page127.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            繞到側面！
+        </div>
+        <div class="page" id="page128" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            波隆，就靠你了！
+        </div>
+        <div class="page" id="page129" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            嗯，交給我吧！
+        </div>
+        <div class="page" id="page130" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            成功了嗎？
+        </div>
+        <div class="page" id="page131" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            笑死人了……
+        </div>
+        <div class="page" id="page132">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            真正的破壞是這樣子的……
+        </div>
+        <div class="page" id="page133" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            都給我認真看好了……
+        </div>
+        <div class="page" id="page134" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            （高能源反應！？）不好！！
+        </div>
+        <div class="page" id="page134.2" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            大家現在快避開！
+        </div>
+        <div class="page" id="page134.35" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            剛才……是什麼……？
+        </div>
+        <div class="page" id="page134.4" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">小梅</font>
+            </p>
+            我好害怕……哥哥！
+        </div>
+        <div class="page" id="page134.45" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            ……馬納加爾姆。
+        </div>
+        <div class="page" id="page134.5" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            是可以和靈魂加農炮匹敵的<br>
+            塔拉斯庫斯所裝備之超武器……
+        </div>
+        <div class="page" id="page134.65" style="display:none;">
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            你說什麼！？
+        </div>
+        <div class="page" id="page134.7" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            而且現在塔拉斯庫斯擁有<br>
+            芬里爾供應無限的能源……
+        </div>
+        <div class="page" id="page134.75" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            要是被那玩意擊中的話……
+        </div>
+        <div class="page" id="page134.8" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">瓦帕</font>
+            </p>
+            即便是塔拉尼斯也會粉碎的吧……
+        </div>
+        <div class="page" id="page134.85" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            等等，塔拉斯庫斯剛才受到攻擊的部位……<br>
+            也逐漸在恢復……
+        </div>
+        <div class="page" id="page135" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            大概……能打倒塔拉斯庫斯的<br>
+            方法只有一個了……
+        </div>
+        <div class="page" id="page136" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            只能使用靈魂加農炮了。
+        </div>
+        <div class="page" id="page137" style="display:none;">
+            <div class="column">
+                <img src="插圖/68.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">孩子們</font>
+            </p>
+            <font size="5">咦咦咦！？</font>
+        </div>
+        <div class="page" id="page139" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            不行……絕對不可以……
+        </div>
+        <div class="page" id="page140" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">漢娜</font>
+            </p>
+            馬爾托……
+        </div>
+        <div class="page" id="page141" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            可是……
+        </div>
+        <div class="page" id="page142" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            我知道沒有其他辦法了……
+        </div>
+        <div class="page" id="page143" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            但是，我是知道的……（唔啊啊……）
+        </div>
+        <div class="page" id="page144" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            ……會變成怎樣……我、我是知道的……<br>
+            ……一清二楚的……我們、我們……
+        </div>
+        <div class="page" id="page145" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            <font size="5">……我們不能再犧牲任何人了！！</font>
+        </div>
+        <div class="page" id="page146" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            馬爾托激動地說完，回想起過去的痛苦，<br>
+            馬爾托不忍心讓夥伴們承受那樣的痛楚。
+        </div>
+        <div class="page" id="page147" style="display:none;">
+            <div class="column">
+                <img src="插圖/116.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">旁白</font>
+            </p>
+            與此同時，馬納加爾姆又充能完成，<br>
+            瞄準塔拉尼斯，擊出第二發。
+        </div>
+        <div class="page" id="page148" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">布利茲</font>
+            </p>
+            第二發！？
+        </div>
+        <div class="page" id="page149" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">索克斯</font>
+            </p>
+            怎麼充能這麼快！？
+        </div>
+        <div class="page" id="page150" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            恐怕是因為能量來源是芬里爾……
+        </div>
+        <div class="page" id="page151" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">凱爾</font>
+            </p>
+            什麼！
+        </div>
+        <div class="page" id="page152" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            總之趕緊繞到後面！
+        </div>
+        <div class="page" id="page153" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            哈克！快把哈庫斯的視線給引住！
+        </div>
+        <div class="page" id="page154" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈克</font>
+            </p>
+            ＯＫ！！
+        </div>
+        <div class="page" id="page155" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            啊哈哈哈哈，盡耍些小聰明的死小孩！
+        </div>
+        <div class="page" id="page156" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            你再跑也跑不出芬里爾裡面！
+        </div>
+        <div class="page" id="page157" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            <font size="5">逃不出我的手掌心！</font>
+        </div>
+        <div class="page" id="page158" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            不好了－－！
+        </div>
+        <div class="page" id="page159" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">孩子們</font>
+            </p>
+            哇啊啊啊！擦過去了！！
+        </div>
+        <div class="page" id="page160" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">波隆</font>
+            </p>
+            嗚嗚……
+        </div>
+        <div class="page" id="page161" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">金</font>
+            </p>
+            唔，好痛……
+        </div>
+        <div class="page" id="page162" style="display:none;">
+            <div class="column">
+                <img src="插圖/155.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">馬爾托</font>
+            </p>
+            可惡，繞後也沒用嗎……
+        </div>
+        <div class="page" id="page163" style="display:none;">
+            <div class="column">
+                <img src="插圖/149.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            哼，這鋼鐵的惡魔……<br>
+            我是……我是不會屈服的……！！
+        </div>
+        <div class="page" id="page164" style="display:none;">
+            <div class="column">
+                <img src="插圖/149.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">哈庫斯</font>
+            </p>
+            我不會毀滅的……神是不會毀滅的！！
+            神的審判，將封印惡魔！！
+        </div>
+        <div class="page" id="page165" style="display:none;">
+            <div class="column">
+                <img src="插圖/149.png" width="80%" />
+            </div>
+            <p align="left">
+                <font size="4">貞德</font>
+            </p>
+            不行……！他打算讓芬里爾暴走，毀了這個國家……！
+        </div>
+        <div class="page" id="page166.5" style="display:none;">
+            <div class="nav">
+                <table border="1" style="border-collapse: collapse; width: 100%; height: 120%; text-align: center;">
+                    <tr>
+                        <td>
+                            <font size="5">
+                               <a href="靈魂加農炮.html" style="color: white; text-decoration: none;">使用靈魂加農炮</a>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font size="5">
+                                <a href="賭上尾巴.html" style="color: white; text-decoration: none;">賭上尾巴，絕不放棄</a>
+                            </font>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        <p align="center">
+              <font size="5" color="#FFD700">請選擇行動</font>
+        </p>
+        </div>
+        <div class="fixed-container">
+            <button class="button prev-button disabled" id="prev-button" disabled>上一頁</button>
+            <button class="button next-button" id="next-button">下一頁</button>
+        </div>
+        <script>
+            /*
+    function goToPage() {
+    // 獲取輸入的頁碼
+    const input = document.getElementById('page-input');
+    const pageNumber = parseInt(input.value, 10);
+
+    // 驗證輸入是否合法
+    if (isNaN(pageNumber) || pageNumber < 1 || pageNumber > pages.length) {
+        alert(`請輸入有效的頁碼 (1-${pages.length})`);
+        return;
+    }
+
+    // 跳轉到指定頁面
+    currentPageIndex = pageNumber - 1; // 將頁碼轉換為索引
+    showPage(currentPageIndex);
+
+    // 清空輸入框
+    input.value = '';
+    }
+    */
+            document.addEventListener("DOMContentLoaded", function() {
+                const music = document.getElementById("background-music");
+
+                // 定義要播放音樂的頁面 ID 範圍
+                const musicPages = [
+                    "page156", "page157", "page158", "page159", "page160", 
+                    "page161", "page162", "page163", "page164", "page165", 
+                    "page166", "page167", "page168", "page169", "page170", 
+                    "page171", "page172", "page173", "page174", "page175", 
+                    "page176", "page177", "page178", "page179", "page180", 
+                    "page181", "page182"
+                ];
+
+                // 判斷當前頁面是否在播放音樂的範圍內
+                function isMusicPageVisible() {
+                    return musicPages.some(pageId => {
+                        const page = document.getElementById(pageId);
+                        return page && page.style.display !== "none"; // 頁面顯示且不是隱藏的
+                    });
+                }
+
+                // 播放音樂的邏輯
+                function playMusic() {
+                    if (!music.paused) return; // 音樂已經播放，不做任何操作
+                    music.play();
+                    sessionStorage.setItem("musicPlaying", "true");
+                }
+
+                // 停止音樂的邏輯
+                function stopMusic() {
+                    music.pause();
+                    sessionStorage.removeItem("musicPlaying");
+                }
+
+                // 初始化音樂
+                if (isMusicPageVisible()) {
+                    if (!sessionStorage.getItem("musicPlaying")) {
+                        playMusic();
+                    }
+                }
+
+                // 偵測頁面顯示變化並控制音樂
+                const observer = new MutationObserver(() => {
+                    if (isMusicPageVisible()) {
+                        playMusic(); // 如果範圍內有頁面顯示，則播放音樂
+                    } else {
+                        stopMusic(); // 如果沒有頁面顯示，則停止音樂
+                    }
+                });
+
+                // 監視所有目標頁面
+                musicPages.forEach(pageId => {
+                    const page = document.getElementById(pageId);
+                    if (page) {
+                        observer.observe(page, {
+                            attributes: true,
+                            attributeFilter: ["style"]
+                        });
+                    }
+                });
+
+                // 鍵盤控制頁面顯示
+                const pages = document.querySelectorAll('.page');
+                let currentPageIndex = 0;
+
+                // 顯示當前頁面
+                function showPage(index) {
+                    pages.forEach((page, idx) => {
+                        page.style.display = (idx === index) ? 'block' : 'none';
+                    });
+                    updateButtonState();
+                }
+
+                // 更新按鈕狀態
+                function updateButtonState() {
+                    const prevButton = document.getElementById('prev-button');
+                    prevButton.disabled = currentPageIndex === 0;
+                    document.getElementById('next-button').disabled = currentPageIndex === pages.length - 1;
+                    prevButton.classList.toggle('disabled', currentPageIndex === 0);
+                    document.getElementById('next-button').classList.toggle('disabled', currentPageIndex === pages.length - 1);
+
+                    // 如果不在第一頁，將"上一頁"按鈕改為綠色
+                    if (currentPageIndex > 0) {
+                        prevButton.style.backgroundColor = '#5fdb77';
+                    } else {
+                        prevButton.style.backgroundColor = 'gray';
+                    }
+                }
+
+                // 下一頁按鈕
+                document.getElementById('next-button').addEventListener('click', () => {
+                    if (currentPageIndex < pages.length - 1) {
+                        currentPageIndex++;
+                        showPage(currentPageIndex);
+                    }
+                });
+
+                // 上一頁按鈕
+                document.getElementById('prev-button').addEventListener('click', () => {
+                    if (currentPageIndex > 0) {
+                        currentPageIndex--;
+                        showPage(currentPageIndex);
+                    }
+                });
+
+                // 偵測頁面切換並播放音樂
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'ArrowRight') {
+                        if (currentPageIndex < pages.length - 1) {
+                            currentPageIndex++;
+                            showPage(currentPageIndex);
+                        }
+                    } else if (event.key === 'ArrowLeft') {
+                        if (currentPageIndex > 0) {
+                            currentPageIndex--;
+                            showPage(currentPageIndex);
+                        }
+                    }
+                });
+
+                // 初始顯示第一頁
+                showPage(currentPageIndex);
+
+                // 清理狀態（離開範圍時）
+                window.addEventListener("beforeunload", () => {
+                    stopMusic();
+                });
+            });
+
+            // 鍵盤控制上下頁
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight') {
+                    // 右箭頭鍵，切換到下一頁
+                    if (currentPageIndex < pages.length - 1) {
+                        currentPageIndex++;
+                        showPage(currentPageIndex);
+                    }
+                } else if (event.key === 'ArrowLeft') {
+                    // 左箭頭鍵，切換到上一頁
+                    if (currentPageIndex > 0) {
+                        currentPageIndex--;
+                        showPage(currentPageIndex);
+                    }
+                }
+            });
+            const pages = document.querySelectorAll('.page');
+            let currentPageIndex = 0;
+
+            // 顯示當前頁面
+            function showPage(index) {
+                pages.forEach((page, idx) => {
+                    page.style.display = (idx === index) ? 'block' : 'none';
+                });
+                updateButtonState();
+            }
+
+            // 更新按鈕狀態
+            function updateButtonState() {
+                const prevButton = document.getElementById('prev-button');
+                prevButton.disabled = currentPageIndex === 0;
+                document.getElementById('next-button').disabled = currentPageIndex === pages.length - 1;
+                prevButton.classList.toggle('disabled', currentPageIndex === 0);
+                document.getElementById('next-button').classList.toggle('disabled', currentPageIndex === pages.length - 1);
+
+                // 如果不在第一頁，將"上一頁"按鈕改為綠色
+                if (currentPageIndex > 0) {
+                    prevButton.style.backgroundColor = '#5fdb77';
+                } else {
+                    prevButton.style.backgroundColor = 'gray';
+                }
+            }
+
+            // 下一頁按鈕
+            document.getElementById('next-button').addEventListener('click', () => {
+                if (currentPageIndex < pages.length - 1) {
+                    currentPageIndex++;
+                    showPage(currentPageIndex);
+                }
+            });
+
+            // 上一頁按鈕
+            document.getElementById('prev-button').addEventListener('click', () => {
+                if (currentPageIndex > 0) {
+                    currentPageIndex--;
+                    showPage(currentPageIndex);
+                }
+            });
+
+            // 初始顯示第一頁
+            showPage(currentPageIndex);
+        </script>
+
+</body>
+
+</html>
