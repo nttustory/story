@@ -91,6 +91,8 @@
             background-color: rgba(255, 255, 255, 0);
             pointer-events: none;
             z-index: 1;
+            opacity: 1;
+            transition: opacity 0.8s ease;
         }
 
         .hidden {
@@ -105,9 +107,8 @@
     </style>
 </head>
 
-<body>
+<body background="background.png" style="background-size:cover;">
 
-    <body background="background.png" style="background-size:cover;">
         <div class="container">
             <h1>
                 <a href="https://drive.google.com/drive/folders/1vnaC4F1UpfyJcQ1o8PqCZ9vfeXcgJau6?usp=sharing" target="_blank" style="color: inherit;
@@ -143,7 +144,7 @@
         <script>
             function markAsRead(chapter) {
                 const overlay = document.getElementById('iframeOverlay');
-                overlay.style.display = 'none'; // 隱藏文字提示
+                overlay.style.opacity = '0';
 
                 const chapterLink = document.querySelector(`.nav a:nth-child(${chapter})`);
                 chapterLink.classList.add('read');
