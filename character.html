@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>人物介紹</title>
+    <style>
+        body {
+            font-family: "標楷體", sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .text-block {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 50px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .page {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .page.visible {
+            display: block;
+        }
+
+        .character-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .character-card img {
+            width: 80%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .character-name {
+            font-size: 2em;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .character-info {
+            font-size: 1.1em;
+            line-height: 1.5em;
+            color: #EEE;
+        }
+
+        .fixed-container {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1em;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #5fdb77;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button.disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 背景音樂：所有頁面都會持續播放 -->
+    <audio id="background-music" loop>
+        <source src="音樂/主題曲.mp3" type="audio/mpeg">
+        您的瀏覽器不支援音樂撥放。
+    </audio>
+
+    <div id="text-blocks" class="text-block">
+        <!-- 馬爾托 -->
+        <div class="page visible" id="char1">
+            <div class="character-card">
+                <img src="插圖/馬爾托.png" alt="馬爾托˙馬茲潘" />
+                <div class="character-name">馬爾托˙馬茲潘</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：12歲</p>
+                    <p>布奇˙蒙納村年紀最長的孩子。雙親因病過世後，與妹妹一同在祖父母家放牧咩牛。責任感強、充滿勇氣。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 漢娜 -->
+        <div class="page" id="char2">
+            <div class="character-card">
+                <img src="插圖/漢娜.png" alt="漢娜˙伏塔" />
+                <div class="character-name">漢娜˙伏塔</div>
+                <div class="character-info">
+                    <p>種族：貓人   性別：女性   年齡：12歲</p>
+                    <p>馬爾托的青梅竹馬。非常喜愛閱讀，對誰都很溫柔，夢想有一天成為醫生，富有慈愛精神、思想成熟。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 凱爾 -->
+        <div class="page" id="char3">
+            <div class="character-card">
+                <img src="插圖/凱爾.png" alt="凱爾˙巴伐洛斯" />
+                <div class="character-name">凱爾˙巴伐洛斯</div>
+                <div class="character-info">
+                    <p>種族：貓人   性別：男性   年齡：11歲</p>
+                    <p>因父母原因從都市來到鄉下，尚未完全融入。雖然說話口氣粗魯，但內心溫柔，不甘寂寞，暗戀漢娜。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 波隆 -->
+        <div class="page" id="char4">
+            <div class="character-card">
+                <img src="插圖/波隆.png" alt="波隆˙布利修" />
+                <div class="character-name">波隆˙布利修</div>
+                <div class="character-info">
+                    <p>種族：貓人   性別：男性   年齡：10歲</p>
+                    <p>成長於農夫父親與廚師母親家庭，五兄弟之一。個性溫柔親切，不喜歡與人爭執，外表與個性不符的膽小哭鬼。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 索克斯 -->
+        <div class="page" id="char5">
+            <div class="character-card">
+                <img src="插圖/索克斯.png" alt="索克斯˙米利翁" />
+                <div class="character-name">索克斯˙米利翁</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：10歲</p>
+                    <p>好奇心旺盛，尤其對機械工業充滿興趣。談論知識時容易興奮且說話變快，但做事謹慎，與異性互動稍嫌拘謹。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 小梅 -->
+        <div class="page" id="char6">
+            <div class="character-card">
+                <img src="插圖/小梅.png" alt="小梅˙馬茲潘" />
+                <div class="character-name">小梅˙馬茲潘</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：女性   年齡：4歲</p>
+                    <p>馬爾托的妹妹，天性樂觀開朗。雙親去世後依然笑容可掬，對所有人都親切，最喜歡哥哥馬爾托。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 琪克 -->
+        <div class="page" id="char7">
+            <div class="character-card">
+                <img src="插圖/琪克.png" alt="琪克˙蒙布朗" />
+                <div class="character-name">琪克˙蒙布朗</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：女性   年齡：6歲</p>
+                    <p>雙胞胎姊姊，弟弟為哈克。雖然只是小女孩，卻非常機敏，常與哈克惡作劇，面對魯莽行動能及時踩煞車。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 哈克 -->
+        <div class="page" id="char8">
+            <div class="character-card">
+                <img src="插圖/哈克.png" alt="哈克˙蒙布朗" />
+                <div class="character-name">哈克˙蒙布朗</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：6歲</p>
+                    <p>琪克的雙胞胎弟弟，是個好事之徒，非常喜歡惡作劇，頭盔是他與琪克在戰場上撿到的寶物。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 希娜 -->
+        <div class="page" id="char9">
+            <div class="character-card">
+                <img src="插圖/希娜.png" alt="希娜˙法蘭菲爾" />
+                <div class="character-name">希娜˙法蘭菲爾</div>
+                <div class="character-info">
+                    <p>種族：貓人   性別：女性   年齡：9歲</p>
+                    <p>未經訓練卻天生會用咒術，性格怯弱、文靜，時常戰戰兢兢。隨身攜帶母親手做布偶「布魯艾特」。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 金 -->
+        <div class="page" id="char10">
+            <div class="character-card">
+                <img src="插圖/金.png" alt="金˙瑪奇朵" />
+                <div class="character-name">金˙瑪奇朵</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：11歲</p>
+                    <p>工廠廠長之子，自幼玩弄機械。雖粗魯卻敬業，具有專業技師氣質，意志堅定、講義氣。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 瓦帕 -->
+        <div class="page" id="char11">
+            <div class="character-card">
+                <img src="插圖/瓦帕.png" alt="瓦帕˙夏洛特" />
+                <div class="character-name">瓦帕˙夏洛特</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：女性   年齡：8歲</p>
+                    <p>自幼四處流浪的天真少女，悠悠哉哉卻不服輸，喜歡當隊長和佔據高處，愛冒險。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 布利茲 -->
+        <div class="page" id="char12">
+            <div class="character-card">
+                <img src="插圖/布利茲.png" alt="布利茲˙修特魯德魯" />
+                <div class="character-name">布利茲˙修特魯德魯</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：9歲</p>
+                    <p>貝爾曼帝國的孤兒少年。父親背叛國家被處置，他與母親、妹妹飽受冷眼，後被徵為少年兵，心中渴望和平。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 布雷榭爾 -->
+        <div class="page" id="char13">
+            <div class="character-card">
+                <img src="插圖/布雷榭爾.png" alt="布雷榭爾" />
+                <div class="character-name">布雷榭爾</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：49歲</p>
+                    <p>軍人出身，嚴格且重情義，願為國家奉獻生命。雖然講情義，但戰場上不手下留情。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 馮˙修德萊爾 -->
+        <div class="page" id="char14">
+            <div class="character-card">
+                <img src="插圖/馮修德萊爾.png" alt="馮˙修德萊爾" />
+                <div class="character-name">馮˙修德萊爾</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：84歲</p>
+                    <p>視戰爭為遊戲的老將，冷酷且擅策，與馮˙鮑姆互為勁敵。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 馮˙鮑姆 -->
+        <div class="page" id="char15">
+            <div class="character-card">
+                <img src="插圖/馮鮑姆.png" alt="馮˙鮑姆" />
+                <div class="character-name">馮˙鮑姆</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：87歲</p>
+                    <p>以戰爭為樂的老將，不擇手段追求戰果，部屬僅視兵為棋子。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 芙蘭姆 -->
+        <div class="page" id="char16">
+            <div class="character-card">
+                <img src="插圖/芙蘭姆.png" alt="芙蘭姆˙基修" />
+                <div class="character-name">芙蘭姆˙基修</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：女性   年齡：22歲</p>
+                    <p>布雷榭爾的養女，崇拜養父，激進且急躁地參與軍事行動，對養父極度忠誠。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 托爾托爾 -->
+        <div class="page" id="char17">
+            <div class="character-card">
+                <img src="插圖/托爾托爾.png" alt="托爾托爾˙布魯托威爾斯多" />
+                <div class="character-name">托爾托爾˙布魯托威爾斯多</div>
+                <div class="character-info">
+                    <p>種族：貓人   性別：男性   年齡：33歲</p>
+                    <p>殘虐暴虐的貓人，對自身身分自卑，戴著犬人面具示人，但冷漠對待他人。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 施梵因 -->
+        <div class="page" id="char18">
+            <div class="character-card">
+                <img src="插圖/施梵因.png" alt="施梵因˙哈庫斯" />
+                <div class="character-name">施梵因˙哈庫斯</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：42歲</p>
+                    <p>狂熱愛國者，創建祖國榮耀與繁盛，為了成為英雄而沉醉民間傳說，冷酷貫徹戰場。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 梅爾隆 -->
+        <div class="page" id="char19">
+            <div class="character-card">
+                <img src="插圖/梅爾隆.png" alt="梅爾隆" />
+                <div class="character-name">梅爾隆</div>
+                <div class="character-info">
+                    <p>種族：犬人   性別：男性   年齡：62歲</p>
+                    <p>卡斯科軍總指揮，熱血粗魯卻溫柔正義。常咬著大骨頭，帶領士兵戰鬥。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 馬斯加朵 -->
+        <div class="page" id="char20">
+            <div class="character-card">
+                <img src="插圖/馬斯加朵.png" alt="馬斯加朵" />
+                <div class="character-name">馬斯加朵</div>
+                <div class="character-info">
+                    <p>種族：貓人   性別：女性   年齡：26歲</p>
+                    <p>梅爾隆上將的右腕，文靜端莊卻常有辛辣發言，擅平息上將情緒，冷靜理智。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 收音機女人 -->
+        <div class="page" id="char21">
+            <div class="character-card">
+                <img src="插圖/收音機女人.png" alt="收音機女人" />
+                <div class="character-name">收音機女人</div>
+                <div class="character-info">
+                    <p>種族：人類(AI)   性別：女性(聲色設定)   年齡：36歲(聲色設定)</p>
+                    <p>用溫柔的聲音引導孩子，值得信賴卻暗藏復仇心，是 AI 「貞德」人格之一。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 發光的少女 -->
+        <div class="page" id="char22">
+            <div class="character-card">
+                <img src="插圖/發光的少女.png" alt="發光的少女" />
+                <div class="character-name">發光的少女</div>
+                <div class="character-info">
+                    <p>種族：人類(AI)   性別：女性(外貌設定)   年齡：10歲(外貌設定)</p>
+                    <p>身心純潔、不善交談，膽小討厭戰鬥，經常提議逃跑，是 AI 「貞德」另一人格。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 貞德 -->
+        <div class="page" id="char23">
+            <div class="character-card">
+                <img src="插圖/貞德.png" alt="貞德" />
+                <div class="character-name">貞德</div>
+                <div class="character-info">
+                    <p>種族：人類(AI)   性別：女性(外貌設定)   年齡：23歲(外貌設定)</p>
+                    <p>冷靜沉著的人工智慧，舊世界製造之塔拉尼斯控制系統。尚未分裂前的「正常貞德」人格。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 分頁切換按鈕 -->
+    <div class="fixed-container">
+        <button id="prev-button" class="button disabled">上一頁</button>
+        <button id="next-button" class="button">下一頁</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const music = document.getElementById("background-music");
+
+            // 播放背景音樂
+            function playMusic() {
+                if (music.paused) music.play();
+            }
+
+            playMusic();
+
+            // 定義所有分頁元素
+            const pages = Array.from(document.querySelectorAll('.page'));
+            let currentPageIndex = 0;
+
+            // 更新分頁顯示
+            function showPage(index) {
+                pages.forEach((page, idx) => {
+                    page.classList.toggle('visible', idx === index);
+                });
+                updateButtonState();
+            }
+
+            // 更新按鈕狀態
+            function updateButtonState() {
+                const prevButton = document.getElementById('prev-button');
+                const nextButton = document.getElementById('next-button');
+
+                prevButton.disabled = (currentPageIndex === 0);
+                prevButton.classList.toggle('disabled', currentPageIndex === 0);
+
+                nextButton.disabled = (currentPageIndex === pages.length - 1);
+                nextButton.classList.toggle('disabled', currentPageIndex === pages.length - 1);
+            }
+
+            // 下一頁按鈕
+            document.getElementById('next-button').addEventListener('click', () => {
+                if (currentPageIndex < pages.length - 1) {
+                    currentPageIndex++;
+                    showPage(currentPageIndex);
+                }
+            });
+
+            // 上一頁按鈕
+            document.getElementById('prev-button').addEventListener('click', () => {
+                if (currentPageIndex > 0) {
+                    currentPageIndex--;
+                    showPage(currentPageIndex);
+                }
+            });
+
+            // 鍵盤控制：左右鍵切換
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight') {
+                    if (currentPageIndex < pages.length - 1) {
+                        currentPageIndex++;
+                        showPage(currentPageIndex);
+                    }
+                } else if (event.key === 'ArrowLeft') {
+                    if (currentPageIndex > 0) {
+                        currentPageIndex--;
+                        showPage(currentPageIndex);
+                    }
+                }
+            });
+
+            // 最初顯示第一頁
+            showPage(currentPageIndex);
+
+            // 離開頁面時暫停音樂
+            window.addEventListener("beforeunload", () => {
+                music.pause();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
